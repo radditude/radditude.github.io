@@ -1,21 +1,36 @@
 # Site settings
-title: Glob, A Blog
-header-img: img/home-bg.png
-email: clare.e.horton@gmail.com
-copyright_name: radditude
-description: > # this means to ignore newlines until "baseurl:"
+title: CJ Horton
+description: 'I make web things.'
 
-baseurl: "" # the subpath of your site, e.g. /blog
-twitter_username: itsradditude
-github_username:  radditude
-learn_profile: radditude
-email_username: clare.e.horton@gmail.com
+baseurl: ""
+
+author:
+  name: 'CJ Horton'
+  email: thecjhorton@gmail.com
+  twitter_username: _radditude
+  github_username: radditude
+  linkedin_username:  thecjhorton
+
+defaults:
+  -
+    scope:
+      path: ''
+      type: 'posts'
+    values:
+        layout: 'post'
 
 # Build settings
+destination: _site
+paginate: 10
+permalink: /:year/:title/
 markdown: kramdown
 highlighter: rouge
-permalink: pretty
-paginate: 5
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
-gems: [jekyll-paginate, jekyll-feed]
+kramdown:
+  # use Github Flavored Markdown
+  input: GFM
+  # do not replace newlines by <br>s
+  hard_wrap: false
+
+plugins: ['jekyll-paginate']
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
