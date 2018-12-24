@@ -32,7 +32,7 @@
               <!-- Twitter -->
               <li class="navigation__item">
                 <a href="http://twitter.com/{{ site.author.twitter_username }}" title="@{{ site.author.twitter_username }} on Twitter" target="_blank">
-                  <i class="icon icon-social-twitter"></i>
+                  <i class="fab fa-twitter"></i>
                   <span class="label">Twitter</span>
                 </a>
               </li>
@@ -42,7 +42,7 @@
               <!-- LinkedIn -->
               <li class="navigation__item">
                 <a href="https://www.linkedin.com/in/{{ site.author.linkedin_username }}" title="{{ site.author.linkedin_username }} on LinkedIn" target="_blank">
-                  <i class="icon icon-social-linkedin"></i>
+                  <i class="fab fa-linkedin-in"></i>
                   <span class="label">LinkedIn</span>
                 </a>
               </li>
@@ -52,11 +52,21 @@
               <!-- GitHub -->
               <li class="navigation__item">
                 <a href="https://www.github.com/{{ site.author.github_username }}" title="{{ site.author.github_username }} on GitHub" target="_blank">
-                  <i class="icon icon-social-github"></i>
+                  <i class="fab fa-github"></i>
                   <span class="label">GitHub</span>
                 </a>
               </li>
             {% endif %}
+
+            {% if site.author.mastodon_username %}
+            <!-- Mastodon -->
+            <li class="navigation__item">
+              <a rel="me" href="https://{{ site.author.mastodon_instance }}/@{{ site.author.mastodon_username }}" title="@{{ site.author.mastodon_username }}@{{ site.author.mastodon_instance}} on Mastodon" target="_blank">
+                <i class="fab fa-mastodon"></i>
+                <span class="label">Mastodon</span>
+              </a>
+            </li>
+          {% endif %}
 
             </ul>
           </nav>

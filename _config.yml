@@ -9,7 +9,9 @@ author:
   email: thecjhorton@gmail.com
   twitter_username: _radditude
   github_username: radditude
-  linkedin_username:  thecjhorton
+  linkedin_username: thecjhorton
+  mastodon_username: radditude
+  mastodon_instance: mastodon.social
 
 defaults:
   -
