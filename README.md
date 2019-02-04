@@ -1,13 +1,13 @@
-# radditude.github.io
+# cjhor.to/n/
 
-Jekyll-powered personal landing page
+My personal landing page, powered by Jekyll
 
 ---
 
-### Install and Test
+### Setup
 
-1. Download or clone repo
-2. cd to the proper folder
-3. `bundle install`
-4. `bundle exec jekyll serve`
-5. Visit `localhost:4000` in your browser
+After cloning the repo:
+1. `bundle install`
+0. `bundle exec jekyll serve`
+		a. Or, to enable hot reloading: `bundle exec jekyll serve --livereload`
+0. Visit `localhost:4000` in your browser

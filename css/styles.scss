@@ -1,0 +1,85 @@
+---
+---
+
+@import 'mixins';
+
+$font-family: 'Source Code Pro', monospace;
+$small-screen: 700px;
+
+html {
+	height: 100vh;
+}
+
+body {
+	@include themify() {
+		background-color: themed('background');
+	}
+	display: flex;
+	justify-content: center;
+	min-height: 97vh;
+	@media (min-width: $small-screen) {
+		align-items: center;
+	}
+	@media (max-width: $small-screen) {
+		margin: 6vmin 6vmin;
+	}
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	right: 10px;
+	font-size: 12px;
+	@include themify() {
+		color: themed('footer');
+	}
+}
+
+#main {
+	@media (min-width: $small-screen) {
+		max-width: $small-screen;
+	}
+	font-family: $font-family;
+
+	h1, h2 {
+		font-weight: 400;
+		text-transform: uppercase;
+	}
+	
+	h3, h4, h5, h6, p, span {
+		font-weight: 300;
+	}
+
+	h1 {
+		@include themify() {
+			color: themed('title');
+		}
+		font-size: 5em;
+		margin: 0;
+		line-height: 1;
+	}
+
+	h2 {
+		@include themify() {
+			color: themed('section');
+		}
+	}
+
+	h4, h5 {
+		@include themify() {
+			color: themed('subtitle');
+		}
+	}
+
+	span {
+		@include themify() {
+			color: themed('divider');
+		}
+	}
+
+	a {
+		@include themify() {
+			color: themed('link');
+		}
+	}
+}

@@ -1,32 +1,41 @@
 # Site settings
-title: CJ Horton
-description: 'I make web things.'
+title: 'CJ Horton'
+description: 'Software engineer and bit pusher. Automate the small stuff.'
 
 baseurl: ""
 
 author:
   name: 'CJ Horton'
   email: thecjhorton@gmail.com
-  twitter_username: _radditude
-  github_username: radditude
-  linkedin_username: thecjhorton
-  mastodon_username: radditude
-  mastodon_instance: mastodon.social
-
-defaults:
-  -
-    scope:
-      path: ''
-      type: 'posts'
-    values:
-        layout: 'post'
+  social:
+    - twitter:
+      title: twitter
+      username: _radditude
+      baseurl: https://twitter.com/
+    - github:
+      title: github
+      username: radditude
+      baseurl: https://github.com/
+    - linkedin:
+      title: linkedin
+      username: thecjhorton
+      baseurl: https://www.linkedin.com/in/
+    - medium:
+      title: medium
+      username: radditude
+      baseurl: https://medium.com/@
+    - dev_to:
+      title: dev.to
+      username: radditude
+      baseurl: https://dev.to/
+    - mastodon:
+      title: mastodon
+      username: radditude
+      baseurl: https://mastodon.social/@
 
 # Build settings
 destination: _site
-paginate: 10
-permalink: /:year/:title/
 markdown: kramdown
-highlighter: rouge
 
 kramdown:
   # use Github Flavored Markdown
@@ -34,5 +43,8 @@ kramdown:
   # do not replace newlines by <br>s
   hard_wrap: false
 
-plugins: ['jekyll-paginate']
-exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock']
+
+sass:
+  sass_dir: css
+  style: compressed
