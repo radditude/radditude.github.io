@@ -7,7 +7,7 @@
 
 	{% for section in site.sections %}
 		<section>
-			<h2 class="subhead"><span class="expander">>></span> {{ section.header }}</h2>
+			<h2 class="subhead"><span class="expander" role="button" aria-label="Expand full content">>></span> {{ section.header }}</h2>
 
 			<div class="section-body">
 				{% include {{ section.content }} %}

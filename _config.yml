@@ -27,45 +27,87 @@ sections:
     content: pagecontent/whoami.html
   - header: projects
     content: pagecontent/projects.html
-  - header: writings
-    content: pagecontent/writings.html
+  - header: writing
+    content: pagecontent/writing.html
   - header: 'get in touch'
     content: pagecontent/contact.html
 
 projects:
-  - title: 'Coveralls Multi'
+  - title: 'coveralls-multi'
+    time: '2018-present'
     blurb: 'A Ruby command line tool which makes it possible to use the popular Coveralls test coverage service with multi-language repos.'
     links:
-      - title: Github
+      - title: github
         url: https://github.com/radditude/coveralls-multi
-      - title: RubyGems
+      - title: rubygems
         url: https://rubygems.org/gems/coveralls-multi
-  - title: "What's On Netflix"
-    blurb: "A very silly CLI that scrapes IMDB and whats-on-netflix.com so you don't have to leave your terminal to find out what you need to binge before it leaves Netflix."
-    links:
-      - title: Github
-        url: https://github.com/radditude/whats-on-netflix
-      - title: RubyGems
-        url: https://rubygems.org/gems/whats-on-netflix
-  - title: 'Script All The Things'
+  - title: 'script all the things'
+    time: '2018-present'
     blurb: 'I write a lot of little bash tools and scripts to automate things in my day to day, like hacking the MacOS Slack client to make it use dark mode or adding a co-author to a commit in Github, and I like to clean them up and share them.'
     links:
-      - title: Github
+      - title: github
         url: https://gist.github.com/radditude
+  - title: 'oceanic page'
+    time: '2019'
+    blurb: "A single-page dark themed site with color scheme based on the popular editor color scheme Oceanic Next -- aka this site's template."
+    links:
+      - title: github
+        url: https://github.com/radditude/oceanic-page
+      - title: site
+        url: https://cjhor.to/oceanic-page/
+  - title: 'legislately'
+    time: '2017'
+    blurb: "A Rails and Angular application for finding and viewing your elected representatives' recent congressional voting activity."
+    links:
+      - title: github
+        url: https://github.com/radditude/legislately
+      - title: site
+        url: https://legislately.herokuapp.com/#/
+  - title: 'flat-collab'
+    time: '2017'
+    blurb: "A Rails and jQuery application for Flatiron School students working on group projects."
+    links:
+      - title: github
+        url: https://github.com/radditude/flat-collab
+  - title: 'jobby'
+    time: '2016'
+    blurb: "A Sinatra app to track job search activity."
+    links:
+      - title: github
+        url: https://github.com/radditude/jobby
+  - title: "what's on netflix"
+    time: '2016'
+    blurb: "A very silly CLI that scrapes IMDB and whats-on-netflix.com so you don't have to leave your terminal to find out what you need to binge before it leaves Netflix."
+    links:
+      - title: github
+        url: https://github.com/radditude/whats-on-netflix
+      - title: rubygems
+        url: https://rubygems.org/gems/whats-on-netflix
+  - title: "toast quotes"
+    time: '2016'
+    blurb: "An internet memorial to a now-defunct website."
+    links:
+      - title: github
+        url: https://github.com/radditude/toast-quotes
+      - title: rubygems
+        url: https://cjhor.to/toast-quotes/
 
 post_links:
+  - title: 'Even Easier Dark Mode for Slack'
+    url: 'https://revelry.co/dark-mode-for-slack/'
+    source: '2019 - revelry.co'
   - title: 'Spacecraft Driven Development'
     url: https://revelry.co/spacecraft-driven-development/
-    source: revelry.co
+    source: '2019 - revelry.co'
   - title: 'Advanced Pair Programming'
     url: https://revelry.co/pair-programming-skills/
-    source: revelry.co
+    source: '2018 - revelry.co'
   - title: 'Better HTML Emails in Rails'
     url: https://revelry.co/html-email-development-rails-tools/
-    source: revelry.co
+    source: '2017 - revelry.co'
   - title: 'Poetry for Developers'
     url: https://dev.to/radditude/poetry-for-developers
-    source: dev.to
+    source: '2017 - dev.to'
 
 # Build settings
 destination: _site

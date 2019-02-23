@@ -6,7 +6,7 @@
 		{%- endfor -%}
 	{%- endcapture -%}
 
-	<h3>{{ project.title }} ({{ formatted_links | strip_newlines }})</h3>
+	<h3>{{ project.time }} &rarr; {{ project.title }} ({{ formatted_links | strip_newlines }})</h3>
 
 	<p>{{ project.blurb }}</p>
 {% endfor %}
