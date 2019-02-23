@@ -1,37 +1,71 @@
 # Site settings
 title: 'CJ Horton'
-description: 'Software engineer and bit pusher. Automate the small stuff.'
+description: 'Software engineer and lifelong generalist. Automate the small stuff.'
 
 baseurl: ""
 
 author:
   name: 'CJ Horton'
   email: thecjhorton@gmail.com
+  display_email: 'thecjhorton [at] gmail dot com'
   social:
-    - twitter:
-      title: twitter
-      username: _radditude
-      baseurl: https://twitter.com/
-    - github:
-      title: github
-      username: radditude
-      baseurl: https://github.com/
-    - linkedin:
-      title: linkedin
-      username: thecjhorton
-      baseurl: https://www.linkedin.com/in/
-    - medium:
-      title: medium
-      username: radditude
-      baseurl: https://medium.com/@
-    - dev_to:
-      title: dev.to
-      username: radditude
-      baseurl: https://dev.to/
-    - mastodon:
-      title: mastodon
-      username: radditude
-      baseurl: https://mastodon.social/@
+    - title: twitter
+      url: https://twitter.com/_radditude
+    - title: github
+      url: https://github.com/radditude
+    - title: linkedin
+      url: https://www.linkedin.com/in/thecjhorton
+    - title: medium
+      url: https://medium.com/@radditude
+    - title: dev.to
+      url: https://dev.to/radditude
+    - title: mastodon
+      url: https://mastodon.social/@radditude
+
+sections:
+  - header: whoami
+    content: pagecontent/whoami.html
+  - header: projects
+    content: pagecontent/projects.html
+  - header: writings
+    content: pagecontent/writings.html
+  - header: 'get in touch'
+    content: pagecontent/contact.html
+
+projects:
+  - title: 'Coveralls Multi'
+    blurb: 'A Ruby command line tool which makes it possible to use the popular Coveralls test coverage service with multi-language repos.'
+    links:
+      - title: Github
+        url: https://github.com/radditude/coveralls-multi
+      - title: RubyGems
+        url: https://rubygems.org/gems/coveralls-multi
+  - title: "What's On Netflix"
+    blurb: "A very silly CLI that scrapes IMDB and whats-on-netflix.com so you don't have to leave your terminal to find out what you need to binge before it leaves Netflix."
+    links:
+      - title: Github
+        url: https://github.com/radditude/whats-on-netflix
+      - title: RubyGems
+        url: https://rubygems.org/gems/whats-on-netflix
+  - title: 'Script All The Things'
+    blurb: 'I write a lot of little bash tools and scripts to automate things in my day to day, like hacking the MacOS Slack client to make it use dark mode or adding a co-author to a commit in Github, and I like to clean them up and share them.'
+    links:
+      - title: Github
+        url: https://gist.github.com/radditude
+
+post_links:
+  - title: 'Spacecraft Driven Development'
+    url: https://revelry.co/spacecraft-driven-development/
+    source: revelry.co
+  - title: 'Advanced Pair Programming'
+    url: https://revelry.co/pair-programming-skills/
+    source: revelry.co
+  - title: 'Better HTML Emails in Rails'
+    url: https://revelry.co/html-email-development-rails-tools/
+    source: revelry.co
+  - title: 'Poetry for Developers'
+    url: https://dev.to/radditude/poetry-for-developers
+    source: dev.to
 
 # Build settings
 destination: _site

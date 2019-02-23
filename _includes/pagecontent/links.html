@@ -1,8 +1,8 @@
 {% for link in site.author.social %}
-	<!-- hiding mastodon link for now -->
 	{% if link.title == "mastodon" %}
-		<a href="{{ link.baseurl }}{{ link.username }}" target="_blank" rel="me" style="display: none;">{{ link.title }}</a>
+		<!-- hiding mastodon link for now -->
+		<a href="{{ link.url }}" target="_blank" rel="me" style="display: none;">{{ link.title }}</a>
 	{% else %}
-		<a href="{{ link.baseurl }}{{ link.username }}" target="_blank" rel="noopener noreferrer">{{ link.title }}</a>&nbsp;
+		{% include pagecontent/external_link.html url=link.url title=link.title %}
 	{% endif %}
 {% endfor %}

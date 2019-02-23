@@ -1,41 +1,49 @@
 ---
 ---
 
-@import 'mixins';
-
 $font-family: 'Source Code Pro', monospace;
 $small-screen: 700px;
+
+//colors
+$background: #18262e;
+$footer: #88b0d7;
+$title: #70bbbb;
+$subtitle: #fcda95;
+$link: #b48777;
+$section: #a5cda0;
+$expander: #6699CC;
+$body: #D8DEE9;
 
 html {
 	height: 100vh;
 }
 
 body {
-	@include themify() {
-		background-color: themed('background');
-	}
+	background-color: $background;
 	display: flex;
 	justify-content: center;
-	min-height: 97vh;
+	min-height: 85vh;
+	padding: 6vmin 6vmin;
 	@media (min-width: $small-screen) {
 		align-items: center;
-	}
-	@media (max-width: $small-screen) {
-		margin: 6vmin 6vmin;
 	}
 }
 
 .footer {
-	position: absolute;
-	bottom: 0;
-	right: 10px;
-	font-size: 12px;
-	@include themify() {
-		color: themed('footer');
+	@media (min-width: $small-screen) {
+		position: fixed;
+		bottom: 0;
+		right: 2.5em;
 	}
+	@media (max-width: $small-screen) {
+		text-align: right;
+	}
+	font-size: 12px;
+	color: $footer;
+	padding: 2em 0;
 }
 
-#main {
+main {
 	@media (min-width: $small-screen) {
 		max-width: $small-screen;
 	}
@@ -46,40 +54,99 @@ body {
 		text-transform: uppercase;
 	}
 	
-	h3, h4, h5, h6, p, span {
+	h3, h4, h5, h6, p, span, li {
 		font-weight: 300;
 	}
 
 	h1 {
-		@include themify() {
-			color: themed('title');
-		}
-		font-size: 5em;
+		color: $title;
+		font-size: 4.5em;
 		margin: 0;
 		line-height: 1;
 	}
 
 	h2 {
-		@include themify() {
-			color: themed('section');
+		color: $section;
+		margin-bottom: 0;
+		cursor: pointer;
+	}
+
+	h3 {
+		color: $subtitle;
+		margin: 1.5em 0 0 0;
+		a {
+			color: $footer;
 		}
 	}
 
-	h4, h5 {
-		@include themify() {
-			color: themed('subtitle');
+	.subtitle {
+		color: $subtitle;
+		margin: 1em 0 0 0;
+	}
+
+	.links {
+		margin: 0.5em 0 3em 0;
+		a {
+			color: $link;
+			font-size: 1em;
 		}
 	}
 
-	span {
-		@include themify() {
-			color: themed('divider');
+	p, ul {
+		color: $body;
+		line-height: 2;
+		font-size: 1em;
+		li {
+			line-height: 1.9;
+			padding-bottom: 0.3em;
+		}
+		a {
+			color: $footer;
 		}
 	}
 
-	a {
-		@include themify() {
-			color: themed('link');
+	p {
+		margin-bottom: 1.5em;
+	}
+
+	p:last-child {
+		margin-bottom: 3em;
+	}
+
+	span.expander {
+		color: $expander;
+		-moz-transition: all .2s ease-in;
+    -ms-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+		&.rotated {
+			-webkit-transform: rotate(90deg);
+			-moz-transform: rotate(90deg);
+			-ms-transform: rotate(90deg);
+			transform: rotate(90deg);
+			display: inline-block;
+			vertical-align: sub;
 		}
+	}
+
+	.section-body {
+		max-width: 650px;
+		-moz-transition: height .2s ease-in;
+    -ms-transition: height .2s ease-in;
+    -o-transition: height .2s ease-in;
+    -webkit-transition: height .2s ease-in;
+    transition: height .2s ease-in;
+    height: 0;
+		overflow: hidden;
+	}
+
+	a#email-clipper {
+		cursor: pointer;
+	}
+	
+	#clipper-confirm {
+		display: none;
+		color: $subtitle;
 	}
 }

@@ -1,0 +1,7 @@
+<p>I blog in various places these days, so here's a few links to my favorites:</p>
+
+{% for link in site.post_links %}
+	<p>
+		{% include pagecontent/external_link.html url=link.url title=link.title %} ({{ link.source }})
+	</p>
+{% endfor %}

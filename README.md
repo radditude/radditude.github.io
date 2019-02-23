@@ -1,6 +1,8 @@
 # cjhor.to/n/
 
-My personal landing page, powered by Jekyll
+My personal landing page, powered by Jekyll.
+
+Uses the [Oceanic Page template](https://github.com/radditude/oceanic-page).
 
 ---
 
