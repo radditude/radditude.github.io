@@ -5,11 +5,11 @@ $font-family: 'Source Code Pro', monospace;
 $small-screen: 700px;
 
 //colors
-$background: #18262e;
+$background: rgba(24,38,46, 0.95);
 $footer: #88b0d7;
 $title: #70bbbb;
 $subtitle: #fcda95;
-$link: #b48777;
+$link: #c39f92;
 $section: #a5cda0;
 $expander: #6699CC;
 $body: #D8DEE9;
@@ -68,6 +68,7 @@ main {
 	h2 {
 		color: $section;
 		margin-bottom: 0;
+		font-size: 2em;
 		cursor: pointer;
 	}
 
@@ -82,20 +83,21 @@ main {
 	.subtitle {
 		color: $subtitle;
 		margin: 1em 0 0 0;
+		font-size: 1.2em;
 	}
 
 	.links {
 		margin: 0.5em 0 3em 0;
+		font-size: 1.2em;
 		a {
 			color: $link;
-			font-size: 1em;
 		}
 	}
 
 	p, ul {
 		color: $body;
 		line-height: 2;
-		font-size: 1em;
+		font-size: 1.2em;
 		li {
 			line-height: 1.9;
 			padding-bottom: 0.3em;
