@@ -41,12 +41,14 @@ projects:
         url: https://github.com/radditude/coveralls-multi
       - title: rubygems
         url: https://rubygems.org/gems/coveralls-multi
-  - title: 'script all the things'
+  - title: 'scripts & dotfiles'
     time: '2018-present'
-    blurb: 'I write a lot of little bash tools and scripts to automate things in my day to day, like hacking the MacOS Slack client to make it use dark mode or adding a co-author to a commit in Github, and I like to clean them up and share them.'
+    blurb: 'I like writing little CLI tools and scripts for things like managing my todo list and notes or hacking the MacOS Slack client to make it dark-themed.'
     links:
-      - title: github
+      - title: 'scripts'
         url: https://gist.github.com/radditude
+      - title: 'dotfiles'
+        url: https://github.com/radditude/fotdiles
   - title: 'oceanic page'
     time: '2019'
     blurb: "A single-page dark themed site with color scheme based on the popular editor color scheme Oceanic Next -- aka this site's template."
