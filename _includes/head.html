@@ -16,17 +16,31 @@
 <meta name="theme-color" content="#10212a">
 
 
-<!-- styles -->
+<!-- fonts-->
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,500" rel="stylesheet">
+
+<!-- light and dark mode styles -->
+<script>
+  // If `prefers-color-scheme` is not supported, fall back to dark mode.
+  if (window.matchMedia('(prefers-color-scheme)').media === 'not all') {
+    document.documentElement.style.display = 'none';
+    document.head.insertAdjacentHTML(
+      'beforeend',
+      '<link rel="stylesheet" href="{{ "/css/dark.css" | prepend: site.baseurl }}" onload="document.documentElement.style.display = ``">'
+    );
+  }
+</script>
+<link rel="stylesheet" href="{{ "/css/dark.css" | prepend: site.baseurl }}" media="(prefers-color-scheme: no-preference), (prefers-color-scheme: dark)">
+<link rel="stylesheet" href="{{ "/css/light.css" | prepend: site.baseurl }}" media="(prefers-color-scheme: light)">
 <link rel="stylesheet" href="{{ "/css/styles.css" | prepend: site.baseurl }}">
 
 <!-- make sure the page is still usable when Javascript is disabled -->
 <noscript>
-	<style>
-		.section-body {
-			height: auto !important;
-			overflow: visible !important;
-		}
-	</style>
+  <style>
+    .section-body {
+      height: auto !important;
+      overflow: visible !important;
+    }
+  </style>
 </noscript>
