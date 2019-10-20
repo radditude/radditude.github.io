@@ -2,7 +2,7 @@
 ---
 
 :root {
-  --background: rgba(24, 38, 46, 0.95);
+  --background: rgba(16, 25, 31, 0.95);
   --footer: #88b0d7;
   --title: #70bbbb;
   --subtitle: #fcda95;
@@ -12,4 +12,12 @@
   --body: #d8dee9;
   --title-weight: 400;
   --secondary-weight: 300;
+  --image-filter: grayscale(50%);
+  --dark-toggle-display: none;
+  --light-toggle-display: block;
+}
+
+// tone down images on dark mode
+img:not([src*='.svg']) {
+  filter: var(--image-filter);
 }

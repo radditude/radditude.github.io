@@ -3,6 +3,8 @@
 
 $font-family: 'Source Code Pro', monospace;
 $small-screen: 700px;
+$duration: 0.5s;
+$timing: ease;
 
 :root {
   color-scheme: light dark;
@@ -13,11 +15,14 @@ html {
 }
 
 body {
-  background-color: var(--background);
   display: flex;
   justify-content: center;
   min-height: 85vh;
   padding: 6vmin 6vmin;
+
+  background-color: var(--background);
+  transition: background-color $duration $timing;
+
   @media (min-width: $small-screen) {
     align-items: center;
   }
@@ -34,6 +39,7 @@ body {
   }
   font-size: 12px;
   color: var(--footer);
+  transition: color $duration $timing;
   padding: 2em 0;
 }
 
@@ -61,6 +67,7 @@ main {
 
   h1 {
     color: var(--title);
+    transition: color $duration $timing;
     font-size: 4.5em;
     margin: 0;
     line-height: 1;
@@ -68,6 +75,7 @@ main {
 
   h2 {
     color: var(--section);
+    transition: color $duration $timing;
     margin-bottom: 0;
     font-size: 2em;
     cursor: pointer;
@@ -75,14 +83,17 @@ main {
 
   h3 {
     color: var(--subtitle);
+    transition: color $duration $timing;
     margin: 1.5em 0 0 0;
     a {
       color: var(--footer);
+      transition: color $duration $timing;
     }
   }
 
   .subtitle {
     color: var(--subtitle);
+    transition: color $duration $timing;
     margin: 1em 0 0 0;
     font-size: 1.2em;
   }
@@ -92,20 +103,36 @@ main {
     font-size: 1.2em;
     a {
       color: var(--link);
+      transition: color $duration $timing;
     }
   }
 
   p,
   ul {
     color: var(--body);
+    transition: color $duration $timing;
     line-height: 2;
     font-size: 1.2em;
+    a {
+      color: var(--footer);
+      transition: color $duration $timing;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 1em;
     li {
       line-height: 1.9;
       padding-bottom: 0.3em;
+      padding-left: 1em;
     }
-    a {
-      color: var(--footer);
+    li:before {
+      content: '\2014';
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
     }
   }
 
@@ -119,6 +146,7 @@ main {
 
   span.expander {
     color: var(--expander);
+    transition: color $duration $timing;
     -moz-transition: all 0.2s ease-in;
     -ms-transition: all 0.2s ease-in;
     -o-transition: all 0.2s ease-in;
@@ -152,5 +180,37 @@ main {
   #clipper-confirm {
     display: none;
     color: var(--subtitle);
+    transition: color $duration $timing;
+  }
+}
+
+#toggle {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 3em;
+  fill: var(--body);
+  filter: grayscale(100%) opacity(50%);
+  p {
+    display: none;
+  }
+  &:hover {
+    filter: grayscale(100%) opacity(80%);
+    transition: filter $duration $timing;
+    p {
+      display: block;
+      position: absolute;
+      right: 1em;
+      top: 2em;
+      font-size: 1em;
+      word-wrap: none;
+      text-align: right;
+    }
+  }
+  .dark {
+    display: var(--dark-toggle-display);
+  }
+  .light {
+    display: var(--light-toggle-display);
   }
 }

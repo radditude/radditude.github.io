@@ -2,7 +2,7 @@
 ---
 
 :root {
-  --background: rgba(230, 231, 231, 0.95);
+  --background: rgba(244, 245, 245, 0.95);
   --footer: #008f8f;
   --title: #063f3f;
   --subtitle: #3b7a33;
@@ -12,4 +12,6 @@
   --body: #063f3f;
   --title-weight: 500;
   --secondary-weight: 400;
+  --dark-toggle-display: block;
+  --light-toggle-display: none;
 }
