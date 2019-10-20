@@ -1,9 +1,9 @@
-<p>I write stuff sometimes. It's a fun look at what goes on in my brain (for a certain value of "fun").</p>
+<p>I write stuff sometimes. It's a fun look at what goes on in my brain (for a certain value of "fun," anyway).</p>
 
-<p>Find my most recent posts below, or <a href="/n/posts">check out the full list</a>.</p>
+<p>A few recent posts:</p>
 
 {% for post in site.posts limit: 3 %}
-<p>
-  {{ post.date | date: "%m/%d/%y" }} - {% include shared/external_link.html url=post.url title=post.title %}
-</p>
+<h3>{{ post.date | date: "%m/%d/%y" }} &rarr; <a href="{{ post.url}}">{{ post.title }}</a></h3>
 {% endfor %}
+
+<p>For more, <a href="/n/posts/">check out the full list</a>.</p>

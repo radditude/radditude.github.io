@@ -1,6 +1,7 @@
 ---
 layout: post
-title: 'Spacecraft Driven Development: Taking Computers to The Moon'
+title: 'Spacecraft Driven Development'
+subtitle: 'Taking Computers to The Moon'
 ---
 
 At the dawn of the space program, computers were enormous, bulky, delicate

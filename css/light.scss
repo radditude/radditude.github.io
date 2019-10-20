@@ -2,16 +2,31 @@
 ---
 
 :root {
-  --background: rgba(244, 245, 245, 0.95);
-  --footer: #008f8f;
-  --title: #063f3f;
-  --subtitle: #3b7a33;
-  --link: #008f8f;
-  --section: #063f3f;
-  --expander: #008f8f;
-  --body: #063f3f;
+  --background: rgba(236, 251, 251, 1);
+  --background-highlight: rgb(224, 241, 241);
+  // color scheme
+  --titleteal: #408686;
+  --blue: #5385b6;
+  --yellow: #c4894f;
+  --brown: #864040;
+  --green: #518b49;
+  --gray: #0c1a1a;
+  // vars expected by the rest of the styles
+  --footer: var(--blue);
+  --subtitle: var(--yellow);
+  --social: var(--brown);
+  --section: var(--green);
+  --expander: var(--blue);
+  --body: var(--gray);
+  --h1: var(--titleteal);
+  --h2: var(--green);
+  --h3: var(--yellow);
+  --h4: var(--brown);
+  --h5: var(--blue);
+  --h6: var(--titleteal);
   --title-weight: 500;
   --secondary-weight: 400;
+  --body-weight: 400;
   --dark-toggle-display: block;
   --light-toggle-display: none;
 }

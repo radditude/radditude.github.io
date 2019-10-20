@@ -10,13 +10,11 @@ author:
   display_email: 'thecjhorton [at] gmail dot com'
   social:
     - title: blog
-      url: /n/posts
+      url: "/n/posts"
     - title: github
       url: https://github.com/radditude
     - title: twitter
       url: https://twitter.com/_radditude
-    # - title: linkedin
-    #   url: https://www.linkedin.com/in/thecjhorton
     - title: dev.to
       url: https://dev.to/radditude
     - title: mastodon
@@ -29,7 +27,7 @@ sections:
     content: frontpage/projects.html
   - header: writing
     content: frontpage/writing.html
-  - header: 'get in touch'
+  - header: 'contact'
     content: frontpage/contact.html
 
 projects:

@@ -1,0 +1,410 @@
+/**
+  * Reset some basic elements
+  */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+hr,
+dl,
+dd,
+ol,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+  * Basic styling
+  */
+
+html {
+  height: 100vh;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: 'kern' 1;
+  -moz-font-feature-settings: 'kern' 1;
+  -o-font-feature-settings: 'kern' 1;
+  font-feature-settings: 'kern' 1;
+  font-kerning: normal;
+  display: flex;
+  justify-content: center;
+  min-height: 85vh;
+  padding: 6vmin 6vmin;
+  flex-direction: column;
+  transition: color $duration $timing;
+  background-color: var(--background);
+  transition: background-color $duration $timing;
+  position: relative;
+  // global font settings
+  font-family: $body-font;
+  font-weight: var(--body-weight);
+  font-weight: var(--secondary-weight);
+  color: var(--body);
+  line-height: 2;
+  font-size: $small-font-size;
+
+  @media (min-width: $small-screen) {
+    align-items: center;
+  }
+}
+
+/**
+  * Set basic spacing
+  */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+figure,
+hr {
+  margin-bottom: 1.2em;
+}
+
+/**
+  * `main` element
+  */
+main {
+  display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
+  @media (min-width: $small-screen) {
+    max-width: $small-screen;
+  }
+}
+
+/**
+  * Images
+  */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/**
+  * Figures
+  */
+figure > img {
+  display: block;
+}
+
+figcaption {
+  font-size: $smallest-font-size;
+}
+
+/**
+  * Lists
+  */
+ul,
+ol {
+  margin-left: 0;
+}
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding-left: $default-spacing / 2;
+  li {
+    padding-left: $default-spacing / 2;
+  }
+  li:before {
+    content: '\2014';
+    display: inline-block;
+    width: 1.5em;
+    margin-left: -1.5em;
+  }
+}
+
+ol {
+  padding-left: $default-spacing;
+}
+
+/**
+  * Headings
+  */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $mono-font;
+  font-weight: var(--title-weight);
+  text-transform: uppercase;
+}
+
+h1 {
+  color: var(--h1);
+  font-size: $largest-font-size;
+}
+
+h2 {
+  color: var(--h2);
+  font-size: $larger-font-size;
+}
+
+h3 {
+  color: var(--h3);
+  font-size: $large-font-size;
+}
+
+h4 {
+  color: var(--h4);
+  font-size: $mediumer-font-size;
+}
+
+h5 {
+  color: var(--h5);
+  font-size: $medium-font-size;
+}
+
+h6 {
+  color: var(--h6);
+  font-size: $font-size;
+}
+
+/**
+  * Links
+  */
+a {
+  color: var(--footer);
+
+  a:hover {
+    filter: opacity(70%);
+    transition: filter $duration $timing;
+  }
+
+  a:visited {
+    color: var(--body);
+  }
+}
+
+/**
+  * Blockquotes
+  */
+blockquote {
+  background-color: var(--background-highlight);
+  border-left: 4px solid var(--footer);
+  padding-left: $default-spacing / 2;
+  font-style: italic;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+  * Code formatting
+  */
+pre,
+code {
+  font-family: $mono-font;
+  font-size: inherit;
+  color: var(--body);
+  border-radius: 3px;
+  background-color: var(--background-highlight);
+
+  // jekyll's syntax highlighter uses tables
+  // when including line nos
+  .rouge-table {
+    border: 0;
+    td {
+      border: 0;
+      &.gutter {
+        padding: 0;
+      }
+      &.code {
+        padding: 0;
+      }
+    }
+  }
+
+  // fade line numbers
+  &.lineno {
+    filter: opacity(0.3);
+    margin: 0;
+    padding: 0 0 0 1rem;
+  }
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 14px;
+  overflow-x: auto;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+/**
+  * Clearfix
+  */
+%clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/**
+  * Tables
+  */
+table {
+  margin-bottom: $default-spacing;
+  width: 100%;
+  text-align: left;
+  color: var(--body);
+  border-collapse: collapse;
+  border: 1px solid var(--body);
+  tr {
+    &:nth-child(even) {
+      background-color: var(--background-highlight);
+    }
+  }
+  th,
+  td {
+    padding: ($default-spacing / 3) ($default-spacing / 2);
+  }
+  th {
+    background-color: var(--background-highlight);
+    border: 1px solid var(--body);
+    text-transform: uppercase;
+  }
+  td {
+    border: 1px solid var(--body);
+  }
+}
+
+/**
+  * Horizontal rules
+  */
+hr {
+  border-color: var(--footer);
+  transition: border-color $duration $timing;
+  margin-left: 5%;
+  margin-right: 5%;
+  opacity: 0.5;
+}
+
+/**
+  * site subtitles
+  */
+.subtitle {
+  font-family: $mono-font;
+  color: var(--subtitle);
+  font-size: $small-font-size;
+  line-height: 1.5;
+  margin-top: 0;
+}
+
+/**
+  * post previews
+  */
+.preview {
+  margin-bottom: 2em;
+}
+
+/**
+  * meta post info and nav links
+  */
+
+.meta,
+.nav {
+  font-family: $mono-font;
+  color: var(--footer);
+  opacity: 0.75;
+  filter: grayscale(50%);
+}
+
+.meta {
+  font-size: 1em;
+  margin-top: 0.5rem;
+  &.index {
+    margin-bottom: 0.5rem;
+  }
+}
+.nav {
+  font-size: $smallest-font-size;
+  margin-bottom: 1.5rem;
+}
+
+/**
+  * footer
+  */
+
+footer {
+  @media (min-width: ($small-screen + 350px)) {
+    position: absolute;
+    bottom: 0;
+    right: 2.5em;
+  }
+  @media (max-width: ($small-screen + 350px)) {
+    text-align: right;
+  }
+  font-family: $mono-font;
+  font-size: $smallest-font-size;
+  color: var(--footer);
+  transition: color $duration $timing;
+  padding: 2em 0;
+}
+
+/**
+  * dark mode toggle
+  */
+
+#toggle {
+  z-index: 10;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 3em;
+  fill: var(--body);
+  filter: grayscale(100%) opacity(50%);
+  &:hover {
+    filter: grayscale(100%) opacity(80%);
+    transition: filter $duration $timing;
+  }
+  .dark {
+    display: var(--dark-toggle-display);
+  }
+  .light {
+    display: var(--light-toggle-display);
+  }
+}

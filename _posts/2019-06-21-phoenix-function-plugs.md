@@ -17,11 +17,11 @@ module that implements an `init` function which accepts a set of options, and a
 `%Plug.Conn{}` struct. The following is a perfectly valid plug (if a bit
 useless):
 
+{% highlight elixir %}
 
-{% highlight elixir linenos %}
-defmodule ExamplePlug do
-  def init([]), do: false
-  def call(conn, _opts), do: conn
+defmodule ExamplePlug do  
+  def init([]), do: false  
+  def call(conn, _opts), do: conn  
 end
 {% endhighlight %}
 
@@ -36,9 +36,10 @@ function plug, it needs to accept a `conn` and `opts` and return the updated
 `conn`:
 
 
-{% highlight elixir linenos %}
-def example_plug(conn, _opts) do
-  assign(conn, :processed_by_example_plug, true)
+{% highlight elixir %}
+
+def example_plug(conn, _opts) do  
+  assign(conn, :processed_by_example_plug, true)  
 end
 {% endhighlight %}
 
@@ -52,59 +53,88 @@ need to check the following:
 
 
 {% highlight elixir linenos %}
-defmodule HelloWeb.EventInviteController do
-  use HelloWeb, :controller
-  alias Hello.{Events, Invites, Invite}
 
-  def edit(conn, %{"event_id" => event_id, "invite_id" => invite_id}) do
-    case Events.get_event(event_id) do
-      {:ok, event} ->
-        case Invites.get_invite(invite_id) do
-          {:ok, invite} ->
-            case is_host?(event, conn.assigns.current_user) do
-              false -> :not_authorized
-              true ->
-                changeset = Invite.changeset(invite)
-                render(conn, "edit.html", event: event, changeset: changeset)
-            end
-          nil ->
-            :not_found
-        end
-      nil ->
-        :not_found
-    end
-  end
+defmodule HelloWeb.EventInviteController do  
+  use HelloWeb, :controller  
+  alias Hello.{Events, Invites, Invite}  
 
-  def update(
-    conn,
-    %{
-      "event_id" => event_id,
-      "invite_id" => invite_id,
-      "invite" => invite_params
-    }
-  ) do
-    case Events.get_event(event_id) do
-      {:ok, event} ->
-        case Invites.get_invite(invite_id) do
-          {:ok, invite} ->
-            case is_host?(event, conn.assigns.current_user) do
-              false -> :not_authorized
-              true ->
-                case Invites.update_invite(invite_params) do
-                  {:error, changeset} ->
-                    render(conn, "edit.html", event: event, changeset: changeset)
-                  {:ok, invite} ->
-                    redirect(conn, to: event_invite_path(conn, :show, event, invite))
-                end
-            end
-          nil ->
-            :not_found
-        end
-      nil ->
-        :not_found
-    end
-  end
-end
+  def edit(conn, %{  
+    "event_id" => event_id,  
+    "invite_id" => invite_id  
+  }) do  
+    case Events.get_event(event_id) do  
+      {:ok, event} ->  
+        case Invites.get_invite(invite_id) do  
+          {:ok, invite} ->  
+            case is_host?(  
+              event,  
+              conn.assigns.current_user  
+            ) do  
+              false -> :not_authorized  
+              true ->  
+                changeset = Invite.changeset(invite)  
+                render(  
+                  conn,  
+                  "edit.html",  
+                  event: event,  
+                  changeset: changeset  
+                )  
+            end  
+          nil ->  
+            :not_found  
+        end  
+      nil ->  
+        :not_found  
+    end  
+  end  
+  
+  def update(  
+    conn,  
+    %{  
+      "event_id" => event_id,  
+      "invite_id" => invite_id,  
+      "invite" => invite_params  
+    }  
+  ) do  
+    case Events.get_event(event_id) do  
+      {:ok, event} ->  
+        case Invites.get_invite(invite_id) do  
+          {:ok, invite} ->  
+            case is_host?(  
+              event,  
+              conn.assigns.current_user  
+            ) do  
+              false -> :not_authorized  
+              true ->  
+                case Invites.update_invite(  
+                  invite_params  
+                ) do  
+                  {:error, changeset} ->  
+                    render(  
+                      conn,   
+                      "edit.html",   
+                      event: event,   
+                      changeset: changeset  
+                    )  
+                  {:ok, invite} ->  
+                    redirect(conn,  
+                      to: event_invite_path(  
+                        conn,  
+                        :show,   
+                        event,   
+                        invite  
+                      )  
+                    )  
+                end  
+            end  
+          nil ->  
+            :not_found  
+        end  
+      nil ->  
+        :not_found  
+    end  
+  end  
+end  
 {% endhighlight %}
 
 We've got some really deeply nested logic here, which gets pretty hard to read,
@@ -113,58 +143,84 @@ they're checking a lot of the same things. Function plugs to the rescue!
 
 
 {% highlight elixir linenos %}
-defmodule HelloWeb.EventInviteController do
-  use HelloWeb, :controller
-  alias Hello.{Events, Invites, Invite}
 
-  plug :ensure_event_exists
-  plug :ensure_invite_exists
-  plug :ensure_host
-
-  def edit(conn, _params) do
-    %{event: event, invite: invite} = conn.assigns
-    changeset = Invite.changeset(invite)
-    render(conn, "edit.html", event: event, changeset: changeset)
-  end
-
-  def update(conn, %{"invite" => invite_params}) do
-    %{event: event, invite: invite} = conn.assigns
-    case Invites.update_invite(invite_params) do
-      {:error, changeset} ->
-        render(conn, "edit.html", event: event, changeset: changeset)
-      {:ok, invite} ->
-        redirect(conn, to: event_invite_path(conn, :show, event, invite))
-    end
-  end
-
-  defp ensure_event_exists(conn, _) do
-    case Events.get_event(conn.params["event_id"]) do
-      nil -> not_found(conn)
-      event -> assign(conn, :event, event)
-    end
-  end
-
-  defp ensure_invite_exists(conn, _) do
-    case Invites.get_invite(conn.params["invite_id"]) do
-      nil -> not_found(conn)
-      invite -> assign(conn, :invite, invite)
-    end
-  end
-
-  defp ensure_host(conn, _) do
-    case is_host?(conn.assigns.event, conn.assigns.current_user) do
-      nil -> not_found(conn)
-      invite -> conn
-    end
-  end
-
-  defp not_found(conn) do
-    conn
-      |> put_status(404)
-      |> render("404.html")
-      |> halt()
-  end
-end
+defmodule HelloWeb.EventInviteController do  
+  use HelloWeb, :controller  
+  alias Hello.{Events, Invites, Invite}  
+  
+  plug :ensure_event_exists  
+  plug :ensure_invite_exists  
+  plug :ensure_host  
+  
+  def edit(conn, _params) do  
+    %{event: event, invite: invite} = conn.assigns  
+    changeset = Invite.changeset(invite)  
+    render(  
+      conn,   
+      "edit.html",   
+      event: event,   
+      changeset: changeset  
+    )  
+  end  
+  
+  def update(conn, %{"invite" => invite_params}) do  
+    %{event: event, invite: invite} = conn.assigns  
+    case Invites.update_invite(invite_params) do  
+      {:error, changeset} ->  
+        render(  
+          conn,   
+          "edit.html",   
+          event: event,   
+          changeset: changeset  
+        )  
+      {:ok, invite} ->  
+        redirect(  
+          conn,  
+          to: event_invite_path(  
+            conn,  
+            :show,  
+            event,  
+            invite  
+          )  
+        )  
+    end  
+  end  
+  
+  defp ensure_event_exists(conn, _) do  
+    case Events.get_event(  
+      conn.params["event_id"]  
+    ) do  
+      nil -> not_found(conn)  
+      event -> assign(conn, :event, event)  
+    end  
+  end  
+  
+  defp ensure_invite_exists(conn, _) do  
+    case Invites.get_invite(  
+      conn.params["invite_id"]  
+    ) do  
+      nil -> not_found(conn)  
+      invite -> assign(conn, :invite, invite)  
+    end  
+  end  
+  
+  defp ensure_host(conn, _) do  
+    case is_host?(  
+      conn.assigns.event,   
+      conn.assigns.current_user  
+    ) do  
+      nil -> not_found(conn)  
+      invite -> conn  
+    end  
+  end  
+  
+  defp not_found(conn) do  
+    conn  
+      |> put_status(404)  
+      |> render("404.html")  
+      |> halt()  
+  end  
+end  
 {% endhighlight %}
 
 You may be wondering about the `halt\1` function in the error handler. By
