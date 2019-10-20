@@ -25,7 +25,7 @@ function handleClick(e) {
 	if (body.clientHeight) {
 		body.style.height = 0
 	} else {
-		body.style.height = body.scrollHeight + "px";
+		body.style.height = body.scrollHeight + "px"
 	}
 }
 
@@ -46,9 +46,64 @@ function setUpEmailClipper() {
 	copier.onclick = copyToClipboard
 }
 
+function setUpModeSwitcher() {
+  // get previous saved value from localStorage if it exists
+  const rememberedValue = localStorage.getItem('chosen-color-scheme');
+  // check media query
+  const prefersLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  // set inital value
+  window.mode = rememberedValue || (prefersLightMode ? 'light' : 'dark')
+  switchMode(window.mode)
+
+  // set up event listener for toggle
+  const toggle = document.querySelector('#toggle')
+
+  toggle.addEventListener('click', () => {
+    window.mode = window.mode === 'light' ? 'dark' : 'light'
+    localStorage.setItem('chosen-color-scheme', window.mode);
+    switchMode(window.mode)
+  })
+}
+
+function switchMode(mode) {
+  const darkCSS = document.querySelector('link[rel=stylesheet][href*=dark]')
+  const lightCSS = document.querySelector('link[rel=stylesheet][href*=light]')
+  const ALL = 'all'
+  const NOT_ALL = 'not all'
+
+  if (mode === 'light') {
+    lightCSS.media = ALL
+    lightCSS.disabled = false
+    darkCSS.media = NOT_ALL
+    darkCSS.disabled = true
+  } else {
+    lightCSS.media = NOT_ALL;
+    lightCSS.disabled = true;
+    darkCSS.media = ALL;
+    darkCSS.disabled = false;
+  }
+}
+
+function credits() {
+  const credits = `
+  CREDITS
+  =======
+
+  Dark and light mode icons found via the Noun Project.
+  https://thenounproject.com
+
+
+  The moon icon is by Three Six Five.
+  The sun icon is by Karan.
+  `
+  console.log(credits)
+}
+
 function init() {
+  credits()
 	setUpExpanders()
-	setUpEmailClipper()
+  setUpEmailClipper()
+  setUpModeSwitcher()
 }
 
 init()

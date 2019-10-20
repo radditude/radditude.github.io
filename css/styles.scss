@@ -3,152 +3,214 @@
 
 $font-family: 'Source Code Pro', monospace;
 $small-screen: 700px;
+$duration: 0.5s;
+$timing: ease;
 
-//colors
-$background: rgba(24,38,46, 0.95);
-$footer: #88b0d7;
-$title: #70bbbb;
-$subtitle: #fcda95;
-$link: #c39f92;
-$section: #a5cda0;
-$expander: #6699CC;
-$body: #D8DEE9;
+:root {
+  color-scheme: light dark;
+}
 
 html {
-	height: 100vh;
+  height: 100vh;
 }
 
 body {
-	background-color: $background;
-	display: flex;
-	justify-content: center;
-	min-height: 85vh;
-	padding: 6vmin 6vmin;
-	@media (min-width: $small-screen) {
-		align-items: center;
-	}
+  display: flex;
+  justify-content: center;
+  min-height: 85vh;
+  padding: 6vmin 6vmin;
+
+  background-color: var(--background);
+  transition: background-color $duration $timing;
+
+  @media (min-width: $small-screen) {
+    align-items: center;
+  }
 }
 
 .footer {
-	@media (min-width: $small-screen) {
-		position: fixed;
-		bottom: 0;
-		right: 2.5em;
-	}
-	@media (max-width: $small-screen) {
-		text-align: right;
-	}
-	font-size: 12px;
-	color: $footer;
-	padding: 2em 0;
+  @media (min-width: $small-screen) {
+    position: fixed;
+    bottom: 0;
+    right: 2.5em;
+  }
+  @media (max-width: $small-screen) {
+    text-align: right;
+  }
+  font-size: 12px;
+  color: var(--footer);
+  transition: color $duration $timing;
+  padding: 2em 0;
 }
 
 main {
-	@media (min-width: $small-screen) {
-		max-width: $small-screen;
-	}
-	font-family: $font-family;
+  @media (min-width: $small-screen) {
+    max-width: $small-screen;
+  }
+  font-family: $font-family;
 
-	h1, h2 {
-		font-weight: 400;
-		text-transform: uppercase;
-	}
-	
-	h3, h4, h5, h6, p, span, li {
-		font-weight: 300;
-	}
+  h1,
+  h2 {
+    font-weight: var(--title-weight);
+    text-transform: uppercase;
+  }
 
-	h1 {
-		color: $title;
-		font-size: 4.5em;
-		margin: 0;
-		line-height: 1;
-	}
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  li {
+    font-weight: var(--secondary-weight);
+  }
 
-	h2 {
-		color: $section;
-		margin-bottom: 0;
-		font-size: 2em;
-		cursor: pointer;
-	}
+  h1 {
+    color: var(--title);
+    transition: color $duration $timing;
+    font-size: 4.5em;
+    margin: 0;
+    line-height: 1;
+  }
 
-	h3 {
-		color: $subtitle;
-		margin: 1.5em 0 0 0;
-		a {
-			color: $footer;
-		}
-	}
+  h2 {
+    color: var(--section);
+    transition: color $duration $timing;
+    margin-bottom: 0;
+    font-size: 2em;
+    cursor: pointer;
+  }
 
-	.subtitle {
-		color: $subtitle;
-		margin: 1em 0 0 0;
-		font-size: 1.2em;
-	}
+  h3 {
+    color: var(--subtitle);
+    transition: color $duration $timing;
+    margin: 1.5em 0 0 0;
+    a {
+      color: var(--footer);
+      transition: color $duration $timing;
+    }
+  }
 
-	.links {
-		margin: 0.5em 0 3em 0;
-		font-size: 1.2em;
-		a {
-			color: $link;
-		}
-	}
+  .subtitle {
+    color: var(--subtitle);
+    transition: color $duration $timing;
+    margin: 1em 0 0 0;
+    font-size: 1.2em;
+  }
 
-	p, ul {
-		color: $body;
-		line-height: 2;
-		font-size: 1.2em;
-		li {
-			line-height: 1.9;
-			padding-bottom: 0.3em;
-		}
-		a {
-			color: $footer;
-		}
-	}
+  .links {
+    margin: 0.5em 0 3em 0;
+    font-size: 1.2em;
+    a {
+      color: var(--link);
+      transition: color $duration $timing;
+    }
+  }
 
-	p {
-		margin-bottom: 1.5em;
-	}
+  p,
+  ul {
+    color: var(--body);
+    transition: color $duration $timing;
+    line-height: 2;
+    font-size: 1.2em;
+    a {
+      color: var(--footer);
+      transition: color $duration $timing;
+    }
+  }
 
-	p:last-child {
-		margin-bottom: 3em;
-	}
+  ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 1em;
+    li {
+      line-height: 1.9;
+      padding-bottom: 0.3em;
+      padding-left: 1em;
+    }
+    li:before {
+      content: '\2014';
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+  }
 
-	span.expander {
-		color: $expander;
-		-moz-transition: all .2s ease-in;
-    -ms-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    -webkit-transition: all .2s ease-in;
-    transition: all .2s ease-in;
-		&.rotated {
-			-webkit-transform: rotate(90deg);
-			-moz-transform: rotate(90deg);
-			-ms-transform: rotate(90deg);
-			transform: rotate(90deg);
-			display: inline-block;
-			vertical-align: sub;
-		}
-	}
+  p {
+    margin-bottom: 1.5em;
+  }
 
-	.section-body {
-		max-width: 650px;
-		-moz-transition: height .2s ease-in;
-    -ms-transition: height .2s ease-in;
-    -o-transition: height .2s ease-in;
-    -webkit-transition: height .2s ease-in;
-    transition: height .2s ease-in;
+  p:last-child {
+    margin-bottom: 3em;
+  }
+
+  span.expander {
+    color: var(--expander);
+    transition: color $duration $timing;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    &.rotated {
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+      display: inline-block;
+      vertical-align: sub;
+    }
+  }
+
+  .section-body {
+    max-width: 650px;
+    -moz-transition: height 0.2s ease-in;
+    -ms-transition: height 0.2s ease-in;
+    -o-transition: height 0.2s ease-in;
+    -webkit-transition: height 0.2s ease-in;
+    transition: height 0.2s ease-in;
     height: 0;
-		overflow: hidden;
-	}
+    overflow: hidden;
+  }
 
-	a#email-clipper {
-		cursor: pointer;
-	}
-	
-	#clipper-confirm {
-		display: none;
-		color: $subtitle;
-	}
+  a#email-clipper {
+    cursor: pointer;
+  }
+
+  #clipper-confirm {
+    display: none;
+    color: var(--subtitle);
+    transition: color $duration $timing;
+  }
+}
+
+#toggle {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 3em;
+  fill: var(--body);
+  filter: grayscale(100%) opacity(50%);
+  p {
+    display: none;
+  }
+  &:hover {
+    filter: grayscale(100%) opacity(80%);
+    transition: filter $duration $timing;
+    p {
+      display: block;
+      position: absolute;
+      right: 1em;
+      top: 2em;
+      font-size: 1em;
+      word-wrap: none;
+      text-align: right;
+    }
+  }
+  .dark {
+    display: var(--dark-toggle-display);
+  }
+  .light {
+    display: var(--light-toggle-display);
+  }
 }
