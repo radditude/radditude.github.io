@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {% include head.html %}
-    <meta http-equiv="refresh" content="0;URL=/n/">
-  </head>
 
-  <body>
-    {% include pagecontent.html %}
-  </body>
+<head>
+  {% include head.html %}
+  <meta http-equiv="refresh" content="0;URL=/n/">
+</head>
+
+<body>
+  <main>
+    {% include shared/toggle.html %}
+    {{ content }}
+    {% include shared/footer.html %}
+  </main>
+</body>
+
 </html>

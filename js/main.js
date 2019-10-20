@@ -4,7 +4,7 @@
 function setUpExpanders() {
 	const sections = document.querySelectorAll('.subhead')
 	for (var i = 0; i < sections.length; i++) {
-		sections[i].onclick = handleClick
+		sections[i].onclick = handleExpanderClick
 	}
 }
 
@@ -17,7 +17,7 @@ function getSection(element) {
 	}
 }
 
-function handleClick(e) {
+function handleExpanderClick(e) {
 	const section = getSection(e.target)
 	const expander = section.querySelector('.expander').classList
 	const body = section.querySelector('.section-body')
@@ -42,8 +42,10 @@ function copyToClipboard() {
 }
 
 function setUpEmailClipper() {
-	const copier = document.querySelector('#email-clipper')
-	copier.onclick = copyToClipboard
+  const copier = document.querySelector('#email-clipper')
+  if (copier) {
+    copier.onclick = copyToClipboard
+  }
 }
 
 function setUpModeSwitcher() {
@@ -58,11 +60,13 @@ function setUpModeSwitcher() {
   // set up event listener for toggle
   const toggle = document.querySelector('#toggle')
 
-  toggle.addEventListener('click', () => {
-    window.mode = window.mode === 'light' ? 'dark' : 'light'
-    localStorage.setItem('chosen-color-scheme', window.mode);
-    switchMode(window.mode)
-  })
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      window.mode = window.mode === 'light' ? 'dark' : 'light'
+      localStorage.setItem('chosen-color-scheme', window.mode);
+      switchMode(window.mode)
+    })
+  }
 }
 
 function switchMode(mode) {

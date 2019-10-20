@@ -9,14 +9,14 @@ author:
   email: thecjhorton@gmail.com
   display_email: 'thecjhorton [at] gmail dot com'
   social:
-    - title: twitter
-      url: https://twitter.com/_radditude
+    - title: blog
+      url: /n/blog
     - title: github
       url: https://github.com/radditude
-    - title: linkedin
-      url: https://www.linkedin.com/in/thecjhorton
-    - title: medium
-      url: https://medium.com/@radditude
+    - title: twitter
+      url: https://twitter.com/_radditude
+    # - title: linkedin
+    #   url: https://www.linkedin.com/in/thecjhorton
     - title: dev.to
       url: https://dev.to/radditude
     - title: mastodon
@@ -24,13 +24,13 @@ author:
 
 sections:
   - header: whoami
-    content: pagecontent/whoami.html
+    content: frontpage/whoami.html
   - header: projects
-    content: pagecontent/projects.html
+    content: frontpage/projects.html
   - header: writing
-    content: pagecontent/writing.html
+    content: frontpage/writing.html
   - header: 'get in touch'
-    content: pagecontent/contact.html
+    content: frontpage/contact.html
 
 projects:
   - title: 'coveralls-multi'
