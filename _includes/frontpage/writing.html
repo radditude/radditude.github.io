@@ -1,7 +1,9 @@
-<p>I blog in various places, so here's a few links to my favorites:</p>
+<p>I write stuff sometimes. It's a fun look at what goes on in my brain (for a certain value of "fun").</p>
 
-{% for link in site.post_links %}
+<p>Find my most recent posts below, or <a href="/n/posts">check out the full list</a>.</p>
+
+{% for post in site.posts limit: 3 %}
 <p>
-  {% include shared/external_link.html url=link.url title=link.title %} ({{ link.source }})
+  {{ post.date | date: "%m/%d/%y" }} - {% include shared/external_link.html url=post.url title=post.title %}
 </p>
 {% endfor %}
