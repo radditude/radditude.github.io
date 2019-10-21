@@ -1,150 +1,55 @@
 ---
 ---
 
-$font-family: 'Source Code Pro', monospace;
+$mono-font: 'Source Code Pro', monospace;
+$body-font: 'Montserrat', sans-serif;
 $small-screen: 700px;
 $duration: 0.5s;
 $timing: ease;
+$default-spacing: 2em;
+$smallest-font-size: 0.9em;
+$small-font-size: 1.2em;
+$font-size: 1.7em;
+$medium-font-size: 2em;
+$mediumer-font-size: 2.25em;
+$large-font-size: 2.5em;
+$larger-font-size: 2.75em;
+$largest-font-size: 3em;
 
-:root {
-  color-scheme: light dark;
-}
+@import '_base.scss';
+@import '_syntax.scss';
 
-html {
-  height: 100vh;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  min-height: 85vh;
-  padding: 6vmin 6vmin;
-
-  background-color: var(--background);
-  transition: background-color $duration $timing;
-
-  @media (min-width: $small-screen) {
-    align-items: center;
-  }
-}
-
-.footer {
-  @media (min-width: $small-screen) {
-    position: fixed;
-    bottom: 0;
-    right: 2.5em;
-  }
-  @media (max-width: $small-screen) {
-    text-align: right;
-  }
-  font-size: 12px;
-  color: var(--footer);
-  transition: color $duration $timing;
-  padding: 2em 0;
-}
-
-main {
-  @media (min-width: $small-screen) {
-    max-width: $small-screen;
-  }
-  font-family: $font-family;
-
-  h1,
-  h2 {
-    font-weight: var(--title-weight);
-    text-transform: uppercase;
-  }
-
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  span,
-  li {
-    font-weight: var(--secondary-weight);
-  }
+// styles specific to the front page
+.frontpage {
+  font-family: $mono-font;
 
   h1 {
-    color: var(--title);
-    transition: color $duration $timing;
-    font-size: 4.5em;
-    margin: 0;
+    font-size: 4em;
     line-height: 1;
+    margin-bottom: 1.5rem;
   }
 
   h2 {
     color: var(--section);
-    transition: color $duration $timing;
-    margin-bottom: 0;
-    font-size: 2em;
     cursor: pointer;
+    font-size: $font-size;
+    margin: 0.5em 0 0 0;
   }
 
   h3 {
+    text-transform: none;
     color: var(--subtitle);
     transition: color $duration $timing;
-    margin: 1.5em 0 0 0;
-    a {
-      color: var(--footer);
-      transition: color $duration $timing;
-    }
-  }
-
-  .subtitle {
-    color: var(--subtitle);
-    transition: color $duration $timing;
-    margin: 1em 0 0 0;
     font-size: 1.2em;
-  }
-
-  .links {
-    margin: 0.5em 0 3em 0;
-    font-size: 1.2em;
-    a {
-      color: var(--link);
-      transition: color $duration $timing;
-    }
-  }
-
-  p,
-  ul {
-    color: var(--body);
-    transition: color $duration $timing;
-    line-height: 2;
-    font-size: 1.2em;
-    a {
-      color: var(--footer);
-      transition: color $duration $timing;
-    }
-  }
-
-  ul {
-    list-style-type: none;
-    margin-left: 0;
-    padding-left: 1em;
-    li {
-      line-height: 1.9;
-      padding-bottom: 0.3em;
-      padding-left: 1em;
-    }
-    li:before {
-      content: '\2014';
-      display: inline-block;
-      width: 1em;
-      margin-left: -1em;
-    }
+    line-height: 2em;
   }
 
   p {
-    margin-bottom: 1.5em;
-  }
-
-  p:last-child {
-    margin-bottom: 3em;
+    margin-top: 1em;
   }
 
   span.expander {
+    font-family: $mono-font;
     color: var(--expander);
     transition: color $duration $timing;
     -moz-transition: all 0.2s ease-in;
@@ -182,35 +87,16 @@ main {
     color: var(--subtitle);
     transition: color $duration $timing;
   }
-}
 
-#toggle {
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  width: 3em;
-  fill: var(--body);
-  filter: grayscale(100%) opacity(50%);
-  p {
-    display: none;
-  }
-  &:hover {
-    filter: grayscale(100%) opacity(80%);
-    transition: filter $duration $timing;
-    p {
-      display: block;
-      position: absolute;
-      right: 1em;
-      top: 2em;
-      font-size: 1em;
-      word-wrap: none;
-      text-align: right;
+  .links {
+    font-family: $mono-font;
+    margin-top: 0;
+    a {
+      color: var(--social);
     }
   }
-  .dark {
-    display: var(--dark-toggle-display);
-  }
-  .light {
-    display: var(--light-toggle-display);
+
+  .subtitle {
+    font-size: 1em;
   }
 }

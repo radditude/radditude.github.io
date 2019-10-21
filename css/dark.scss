@@ -3,18 +3,34 @@
 
 :root {
   --background: rgba(16, 25, 31, 0.95);
-  --footer: #88b0d7;
-  --title: #70bbbb;
-  --subtitle: #fcda95;
-  --link: #c39f92;
-  --section: #a5cda0;
-  --expander: #6699cc;
-  --body: #d8dee9;
+  --background-highlight: rgba(31, 45, 54, 0.95);
+  // color scheme
+  --titleteal: #70bbbb;
+  --lightblue: #88b0d7;
+  --yellow: #fcda95;
+  --brown: #c39f92;
+  --green: #a5cda0;
+  --darkerblue: #6699cc;
+  --gray: #bfc5ce;
+  // vars expected by the rest of the styles
+  --footer: var(--lightblue);
+  --subtitle: var(--yellow);
+  --social: var(--brown);
+  --section: var(--green);
+  --expander: var(--darkerblue);
+  --body: var(--gray);
+  --h1: var(--titleteal);
+  --h2: var(--green);
+  --h3: var(--yellow);
+  --h4: var(--brown);
+  --h5: var(--darkerblue);
+  --h6: var(--titleteal);
   --title-weight: 400;
   --secondary-weight: 300;
-  --image-filter: grayscale(50%);
+  --body-weight: 300;
   --dark-toggle-display: none;
   --light-toggle-display: block;
+  --image-filter: grayscale(50%);
 }
 
 // tone down images on dark mode

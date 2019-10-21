@@ -1,0 +1,12 @@
+{% for project in site.projects %}
+{%- capture formatted_links -%}
+{%- for link in project.links -%}
+{%- include shared/external_link.html url=link.url title=link.title -%}
+{%- if forloop.last != true -%},&nbsp;{%- endif -%}
+{%- endfor -%}
+{%- endcapture -%}
+
+<h3>{{ project.time }} &rarr; {{ project.title }} ({{ formatted_links | strip_newlines }})</h3>
+
+<p>{{ project.blurb }}</p>
+{% endfor %}

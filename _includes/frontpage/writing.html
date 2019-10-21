@@ -1,0 +1,9 @@
+<p>I write stuff sometimes. It's a fun look at what goes on in my brain (for a certain value of "fun," anyway).</p>
+
+<p>A few recent posts:</p>
+
+{% for post in site.posts limit: 3 %}
+<h3>{{ post.date | date: "%m/%d/%y" }} &rarr; <a href="{{ post.url}}">{{ post.title }}</a></h3>
+{% endfor %}
+
+<p>For more, <a href="/n/posts/">check out the full list</a>.</p>

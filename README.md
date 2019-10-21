@@ -12,4 +12,5 @@ After cloning the repo:
 1. `bundle install`
 0. `bundle exec jekyll serve`
 		a. Or, to enable hot reloading: `bundle exec jekyll serve --livereload`
+    b. Or, to include draft posts: `bundle exec jekyll serve --drafts`
 0. Visit `localhost:4000` in your browser

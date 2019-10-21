@@ -1,0 +1,8 @@
+{% for link in site.author.social %}
+{% if link.title == "mastodon" %}
+<!-- hiding mastodon link for now -->
+<a href="{{ link.url }}" rel="me" style="display: none;">{{ link.title }}</a>
+{% else %}
+<a href="{{ link.url }}">{{ link.title }}</a>
+{% endif %}
+{% endfor %}

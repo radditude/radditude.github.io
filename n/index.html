@@ -1,3 +1,21 @@
 ---
 layout: default
 ---
+
+<div class="frontpage">
+  <h1>{{ site.author.name }}</h1>
+  <p class="subtitle">{{ site.description }}</p>
+  <p class="links">
+    {% include frontpage/links.html %}
+  </p>
+
+  {% for section in site.sections %}
+  <section>
+    <h2 class="subhead"><span class="expander" role="button" aria-label="Expand full content">>></span> {{ section.header }}</h2>
+
+    <div class="section-body">
+      {% include {{ section.content }} %}
+    </div>
+  </section>
+  {% endfor %}
+</div>
