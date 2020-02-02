@@ -9,93 +9,35 @@ author:
   email: thecjhorton@gmail.com
   display_email: 'thecjhorton [at] gmail dot com'
   social:
-    - title: blog
-      url: "/n/posts"
-    - title: github
+    - title: Github
       url: https://github.com/radditude
-    - title: twitter
+    - title: Twitter
       url: https://twitter.com/_radditude
     - title: dev.to
       url: https://dev.to/radditude
-    - title: mastodon
-      url: https://mastodon.social/@radditude
 
-sections:
-  - header: whoami
-    content: frontpage/whoami.html
-  - header: projects
-    content: frontpage/projects.html
-  - header: writing
-    content: frontpage/writing.html
-  - header: 'contact'
-    content: frontpage/contact.html
-
-projects:
-  - title: 'coveralls-multi'
-    time: '2018-present'
-    blurb: 'A Ruby command line tool which makes it possible to use the popular Coveralls test coverage service with multi-language repos.'
-    links:
-      - title: github
-        url: https://github.com/radditude/coveralls-multi
-      - title: rubygems
-        url: https://rubygems.org/gems/coveralls-multi
-  - title: 'scripts & dotfiles'
-    time: '2018-present'
-    blurb: 'I like writing little CLI tools and scripts for things like managing my todo list and notes or hacking the MacOS Slack client to make it dark-themed.'
-    links:
-      - title: 'scripts'
-        url: https://gist.github.com/radditude
-      - title: 'dotfiles'
-        url: https://github.com/radditude/fotdiles
-  - title: 'oceanic page'
-    time: '2019'
-    blurb: "A single-page dark themed site with color scheme based on the popular editor color scheme Oceanic Next -- aka this site's template."
-    links:
-      - title: github
-        url: https://github.com/radditude/oceanic-page
-      - title: site
-        url: https://cjhor.to/oceanic-page/
-  - title: 'legislately'
-    time: '2017'
-    blurb: "A Rails and Angular application for finding and viewing your elected representatives' recent congressional voting activity."
-    links:
-      - title: github
-        url: https://github.com/radditude/legislately
-      - title: site
-        url: https://legislately.herokuapp.com/#/
-  - title: 'flat-collab'
-    time: '2017'
-    blurb: "A Rails and jQuery application for Flatiron School students working on group projects."
-    links:
-      - title: github
-        url: https://github.com/radditude/flat-collab
-  - title: 'jobby'
-    time: '2016'
-    blurb: "A Sinatra app to track job search activity."
-    links:
-      - title: github
-        url: https://github.com/radditude/jobby
-  - title: "what's on netflix"
-    time: '2016'
-    blurb: "A very silly CLI that scrapes IMDB and whats-on-netflix.com so you don't have to leave your terminal to find out what you need to binge before it leaves Netflix."
-    links:
-      - title: github
-        url: https://github.com/radditude/whats-on-netflix
-      - title: rubygems
-        url: https://rubygems.org/gems/whats-on-netflix
-  - title: "toast quotes"
-    time: '2016'
-    blurb: "An internet memorial to a now-defunct website."
-    links:
-      - title: github
-        url: https://github.com/radditude/toast-quotes
-      - title: rubygems
-        url: https://cjhor.to/toast-quotes/
+nav:
+  - title: home
+    path: "/"
+  - title: whoami
+    path: "/whoami"
+  - title: contact
+    path: "/contact"
 
 collections:
   posts:
     output: true
     permalink: /n/:title/
+  # projects:
+  #   order:
+  #     - coveralls-multi.md
+  #     - dotfiles.md
+  #     - oceanic-page.md
+  #     - legislately.md
+  #     - flat-collab.md
+  #     - jobby.md
+  #     - toast-quotes.md
+  #     - whats-on-netflix.md
 
 # Build settings
 destination: _site

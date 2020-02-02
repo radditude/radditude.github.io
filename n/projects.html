@@ -1,3 +1,16 @@
+---
+layout: 'default'
+title: 'Projects'
+---
+
+{% include shared/nav.html current="projects" %}
+
+<h1>projects</h1>
+
+<p class="subtitle"></p>
+
+<p>---</p>
+
 {% for project in site.projects %}
 {%- capture formatted_links -%}
 {%- for link in project.links -%}
@@ -6,7 +19,9 @@
 {%- endfor -%}
 {%- endcapture -%}
 
-<h3>{{ project.time }} &rarr; {{ project.title }} ({{ formatted_links | strip_newlines }})</h3>
+<h5>{{ project.title }}</h5>
+
+<p class="meta index">{{ project.year }} | {{ formatted_links | strip_newlines }}</p>
 
 <p>{{ project.blurb }}</p>
 {% endfor %}

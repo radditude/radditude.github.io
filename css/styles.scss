@@ -7,14 +7,15 @@ $small-screen: 700px;
 $duration: 0.5s;
 $timing: ease;
 $default-spacing: 2em;
-$smallest-font-size: 0.9em;
-$small-font-size: 1.2em;
-$font-size: 1.7em;
-$medium-font-size: 2em;
-$mediumer-font-size: 2.25em;
-$large-font-size: 2.5em;
-$larger-font-size: 2.75em;
-$largest-font-size: 3em;
+$smallest-font-size: 0.8em;
+$smaller-font-size: 1em;
+$small-font-size: 1.1em;
+$font-size: 1.4em;
+$medium-font-size: 1.6em;
+$large-font-size: 1.8em;
+$larger-font-size: 2.1em;
+$largest-font-size: 2.5em;
+$title-font-size: 4em;
 
 @import '_base.scss';
 @import '_syntax.scss';
@@ -24,79 +25,54 @@ $largest-font-size: 3em;
   font-family: $mono-font;
 
   h1 {
-    font-size: 4em;
+    font-size: $title-font-size;
     line-height: 1;
     margin-bottom: 1.5rem;
+    @media (max-width: $small-screen) {
+      font-size: $title-font-size * 0.8;
+    }
   }
 
-  h2 {
-    color: var(--section);
-    cursor: pointer;
-    font-size: $font-size;
-    margin: 0.5em 0 0 0;
-  }
-
-  h3 {
-    text-transform: none;
-    color: var(--subtitle);
-    transition: color $duration $timing;
-    font-size: 1.2em;
-    line-height: 2em;
+  h4 {
+    a {
+      text-decoration: none;
+    }
   }
 
   p {
     margin-top: 1em;
   }
 
-  span.expander {
-    font-family: $mono-font;
-    color: var(--expander);
-    transition: color $duration $timing;
-    -moz-transition: all 0.2s ease-in;
-    -ms-transition: all 0.2s ease-in;
-    -o-transition: all 0.2s ease-in;
-    -webkit-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
-    &.rotated {
-      -webkit-transform: rotate(90deg);
-      -moz-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      transform: rotate(90deg);
-      display: inline-block;
-      vertical-align: sub;
-    }
-  }
-
-  .section-body {
-    max-width: 650px;
-    -moz-transition: height 0.2s ease-in;
-    -ms-transition: height 0.2s ease-in;
-    -o-transition: height 0.2s ease-in;
-    -webkit-transition: height 0.2s ease-in;
-    transition: height 0.2s ease-in;
-    height: 0;
-    overflow: hidden;
-  }
-
-  a#email-clipper {
-    cursor: pointer;
-  }
-
-  #clipper-confirm {
-    display: none;
-    color: var(--subtitle);
-    transition: color $duration $timing;
-  }
-
-  .links {
-    font-family: $mono-font;
-    margin-top: 0;
-    a {
-      color: var(--social);
-    }
-  }
-
   .subtitle {
-    font-size: 1em;
+    font-size: $smaller-font-size;
   }
+}
+
+span.expander {
+  font-family: $mono-font;
+  color: var(--expander);
+  transition: color $duration $timing;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  &.rotated {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    display: inline-block;
+    vertical-align: sub;
+  }
+}
+
+a#email-clipper {
+  cursor: pointer;
+}
+
+#clipper-confirm {
+  display: none;
+  color: var(--subtitle);
+  transition: color $duration $timing;
 }

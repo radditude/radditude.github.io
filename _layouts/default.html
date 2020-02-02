@@ -6,11 +6,13 @@
 </head>
 
 <body>
+  {% include shared/toggle.html %}
+
   <main>
-    {% include shared/toggle.html %}
     {{ content }}
-    {% include shared/footer.html %}
   </main>
+
+  {% include shared/footer.html %}
 </body>
 
 </html>

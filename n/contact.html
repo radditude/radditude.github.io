@@ -1,0 +1,24 @@
+---
+layout: 'default'
+title: 'Contact'
+---
+{% include shared/nav.html current="contact" %}
+
+<div class="frontpage">
+
+  <h1>{{ site.author.name }}</h1>
+
+  <p class="subtitle">{{ site.description }}</p>
+
+  <p>---</p>
+
+  <h2>get in touch</h2>
+
+  <p>The best way to reach me is by email at <a id="email-clipper">{{ site.author.display_email }}</a>. <span id="clipper-confirm">Copied to your clipboard!</span></p>
+
+  {% assign twitter = site.author.social | where:"title","Twitter" %}
+  {% assign github = site.author.social | where:"title","Github" %}
+  {% assign dev = site.author.social | where:"title","dev.to" %}
+
+  <p>I've also been known to hang out on <a href="{{ twitter.first.url }}">Twitter</a> and <a href="{{ github.first.url }}">GitHub</a>.</p>
+</div>

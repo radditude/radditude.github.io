@@ -36,11 +36,7 @@ body {
   -o-font-feature-settings: 'kern' 1;
   font-feature-settings: 'kern' 1;
   font-kerning: normal;
-  display: flex;
-  justify-content: center;
-  min-height: 85vh;
   padding: 6vmin 6vmin;
-  flex-direction: column;
   transition: color $duration $timing;
   background-color: var(--background);
   transition: background-color $duration $timing;
@@ -50,7 +46,7 @@ body {
   font-weight: var(--body-weight);
   font-weight: var(--secondary-weight);
   color: var(--body);
-  line-height: 2;
+  line-height: 1.9;
   font-size: $small-font-size;
 
   @media (min-width: $small-screen) {
@@ -62,12 +58,15 @@ body {
   * Set basic spacing
   */
 h1,
-h2,
+h2 {
+  line-height: 1.3;
+}
+
 h3,
 h4,
 h5,
 h6 {
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 h2,
@@ -94,6 +93,9 @@ hr {
   */
 main {
   display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
+  margin: auto;
+  max-width: 38em;
+  // min-height: 100%;
   @media (min-width: $small-screen) {
     max-width: $small-screen;
   }
@@ -162,37 +164,55 @@ h5,
 h6 {
   font-family: $mono-font;
   font-weight: var(--title-weight);
-  text-transform: uppercase;
+  letter-spacing: -0.01em;
 }
 
 h1 {
   color: var(--h1);
   font-size: $largest-font-size;
+  @media (max-width: $small-screen) {
+    font-size: $largest-font-size * 0.7;
+  }
 }
 
 h2 {
   color: var(--h2);
   font-size: $larger-font-size;
+  @media (max-width: $small-screen) {
+    font-size: $larger-font-size * 0.7;
+  }
 }
 
 h3 {
   color: var(--h3);
   font-size: $large-font-size;
+  @media (max-width: $small-screen) {
+    font-size: $large-font-size * 0.7;
+  }
 }
 
 h4 {
   color: var(--h4);
-  font-size: $mediumer-font-size;
+  font-size: $medium-font-size;
+  @media (max-width: $small-screen) {
+    font-size: $medium-font-size * 0.8;
+  }
 }
 
 h5 {
   color: var(--h5);
-  font-size: $medium-font-size;
+  font-size: $font-size;
+  @media (max-width: $small-screen) {
+    font-size: $font-size;
+  }
 }
 
 h6 {
   color: var(--h6);
-  font-size: $font-size;
+  font-size: $small-font-size;
+  @media (max-width: $small-screen) {
+    font-size: $small-font-size;
+  }
 }
 
 /**
@@ -201,12 +221,12 @@ h6 {
 a {
   color: var(--footer);
 
-  a:hover {
+  &:hover {
     filter: opacity(70%);
     transition: filter $duration $timing;
   }
 
-  a:visited {
+  &:visited {
     color: var(--body);
   }
 }
@@ -217,7 +237,7 @@ a {
 blockquote {
   background-color: var(--background-highlight);
   border-left: 4px solid var(--footer);
-  padding-left: $default-spacing / 2;
+  padding: $default-spacing / 2;
   font-style: italic;
 
   > :last-child {
@@ -318,8 +338,6 @@ table {
 hr {
   border-color: var(--footer);
   transition: border-color $duration $timing;
-  margin-left: 5%;
-  margin-right: 5%;
   opacity: 0.5;
 }
 
@@ -354,15 +372,18 @@ hr {
 }
 
 .meta {
-  font-size: 1em;
+  font-size: $smaller-font-size;
   margin-top: 0.5rem;
   &.index {
     margin-bottom: 0.5rem;
   }
 }
 .nav {
-  font-size: $smallest-font-size;
+  font-size: $smaller-font-size;
   margin-bottom: 1.5rem;
+  @media (max-width: ($small-screen)) {
+    max-width: 75%;
+  }
 }
 
 /**
@@ -373,7 +394,7 @@ footer {
   @media (min-width: ($small-screen + 350px)) {
     position: absolute;
     bottom: 0;
-    right: 2.5em;
+    right: 8em;
   }
   @media (max-width: ($small-screen + 350px)) {
     text-align: right;
@@ -381,7 +402,6 @@ footer {
   font-family: $mono-font;
   font-size: $smallest-font-size;
   color: var(--footer);
-  transition: color $duration $timing;
   padding: 2em 0;
 }
 

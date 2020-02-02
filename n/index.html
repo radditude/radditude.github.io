@@ -1,21 +1,24 @@
 ---
 layout: default
 ---
+{% include shared/nav.html current="home" %}
 
 <div class="frontpage">
+
   <h1>{{ site.author.name }}</h1>
+
   <p class="subtitle">{{ site.description }}</p>
-  <p class="links">
-    {% include frontpage/links.html %}
+
+  <p>---</p>
+
+  {% for post in site.posts %}
+  <h4>
+    <a href="{{ post.url }}">{{ post.title }}{% if post.subtitle %}: {{ post.subtitle }} {% endif %}</a>
+  </h4>
+  <p class="meta index">
+    <em>{{ post.date | date_to_string: "ordinal", "US" }}</em>
   </p>
-
-  {% for section in site.sections %}
-  <section>
-    <h2 class="subhead"><span class="expander" role="button" aria-label="Expand full content">>></span> {{ section.header }}</h2>
-
-    <div class="section-body">
-      {% include {{ section.content }} %}
-    </div>
-  </section>
+  {{ post.excerpt }}
+  <p>---</p>
   {% endfor %}
 </div>

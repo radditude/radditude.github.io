@@ -1,7 +1,0 @@
-<p>The best way to reach me is at {{ site.author.display_email }}. [<a id="email-clipper">Click here</a>] to copy it to your clipboard. <span id="clipper-confirm">Copied!</span></p>
-
-{% assign twitter = site.author.social | where:"title","twitter" %}
-
-<p>I also hang out on {% include shared/external_link.html url=twitter.first.url title="Twitter" %} if that's your thing.</p>
-
-<p>Despite my best intentions, I probably won't respond to your Linkedin message.</p>
