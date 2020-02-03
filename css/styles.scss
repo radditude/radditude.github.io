@@ -2,14 +2,14 @@
 ---
 
 $mono-font: 'Source Code Pro', monospace;
-$body-font: 'Montserrat', sans-serif;
+$body-font: 'Source Serif Pro', sans-serif;
 $small-screen: 700px;
 $duration: 0.5s;
 $timing: ease;
 $default-spacing: 2em;
 $smallest-font-size: 0.8em;
 $smaller-font-size: 1em;
-$small-font-size: 1.1em;
+$small-font-size: 1.2em;
 $font-size: 1.4em;
 $medium-font-size: 1.6em;
 $large-font-size: 1.8em;
@@ -22,8 +22,6 @@ $title-font-size: 4em;
 
 // styles specific to the front page
 .frontpage {
-  font-family: $mono-font;
-
   h1 {
     font-size: $title-font-size;
     line-height: 1;
@@ -33,7 +31,7 @@ $title-font-size: 4em;
     }
   }
 
-  h4 {
+  h2 {
     a {
       text-decoration: none;
     }

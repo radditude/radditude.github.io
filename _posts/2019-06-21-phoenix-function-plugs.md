@@ -14,8 +14,9 @@ it's at the heart of many Phoenix features.
 They're easy to write, too. A module plug is nothing more than a regular Elixir
 module that implements an `init` function which accepts a set of options, and a
 `call` function which applies those options to the conn and returns the updated
-`%Plug.Conn{}` struct. The following is a perfectly valid plug (if a bit
-useless):
+`%Plug.Conn{}` struct. 
+
+The following is a perfectly valid plug (if a bit useless):
 
 {% highlight elixir %}
 
@@ -31,9 +32,10 @@ a different module/file.
 
 This is where function plugs shine. They can help break up nested logic and
 break down complex controller actions into smaller, more comprehensible chunks,
-while keeping everything in the same controller. To turn a function into a
-function plug, it needs to accept a `conn` and `opts` and return the updated
-`conn`:
+while keeping everything in the same controller.
+
+To turn a function into a function plug, it needs to accept a `conn` and `opts`
+and return the updated `conn`:
 
 
 {% highlight elixir %}
@@ -44,7 +46,9 @@ end
 {% endhighlight %}
 
 For a somewhat less contrived example, we'll take a look at the following
-controller. Our example app includes an event invite management feature where we
+controller.
+
+Our example app includes an event invite management feature where we
 need to check the following:
 
 1. the event exists
@@ -139,8 +143,9 @@ end
 
 We've got some really deeply nested logic here, which gets pretty hard to read,
 plus there's a lot of repetition between the different controller actions since
-they're checking a lot of the same things. Function plugs to the rescue!
+they're checking a lot of the same things.
 
+Function plugs to the rescue!
 
 {% highlight elixir linenos %}
 
@@ -223,8 +228,9 @@ defmodule HelloWeb.EventInviteController do
 end  
 {% endhighlight %}
 
-You may be wondering about the `halt\1` function in the error handler. By
-default, all the plugs in the pipeline will be called for every request, so
+You may be wondering about the `halt\1` function in the error handler.
+
+By default, all the plugs in the pipeline will be called for every request, so
 without the call to `halt()` Phoenix will `render(conn, "404.html")` and then
 attempt to continue, causing your controller action to blow up. As the name
 implies, `halt()` stops the plug pipeline and returns the current conn.
@@ -235,8 +241,10 @@ to change or remove later.
 
 Let's say you needed to add an additional check to ensure that past events
 couldn't be edited. In the previous implementation, you'd need to add an
-additional case statement to every controller action. This way, all you need is
-a new function plug that returns the conn if the event is ok to edit and renders
-an error if it isn't - no need to modify individual controller actions at all.
+additional case statement to every controller action.
+
+This way, all you need is a new function plug that returns the conn if the
+event is ok to edit and renders an error if it isn't - no need to modify
+individual controller actions at all.
 
 Happy Elixir-ing!

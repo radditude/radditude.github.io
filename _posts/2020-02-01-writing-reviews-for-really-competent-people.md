@@ -53,7 +53,7 @@ skill at technical communication by writing documentation to go with it.
 You get the idea -- what's something they already do quite well, and how could
 they do it even more effectively?
 
-## This all sounds like a lot of work
+### This all sounds like a lot of work
 
 _What's in this for me?_, you may be thinking. _Why should I go to all this
 trouble just to help my co-worker get promoted?_

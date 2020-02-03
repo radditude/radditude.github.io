@@ -12,13 +12,16 @@ layout: default
   <p>---</p>
 
   {% for post in site.posts %}
-  <h4>
+  <h2>
     <a href="{{ post.url }}">{{ post.title }}{% if post.subtitle %}: {{ post.subtitle }} {% endif %}</a>
-  </h4>
+  </h2>
   <p class="meta index">
     <em>{{ post.date | date_to_string: "ordinal", "US" }}</em>
   </p>
   {{ post.excerpt }}
+
+  <p class="meta"><a href="{{ post.url }}">More >></a></p>
+
   <p>---</p>
   {% endfor %}
 </div>

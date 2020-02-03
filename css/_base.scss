@@ -43,8 +43,6 @@ body {
   position: relative;
   // global font settings
   font-family: $body-font;
-  font-weight: var(--body-weight);
-  font-weight: var(--secondary-weight);
   color: var(--body);
   line-height: 1.9;
   font-size: $small-font-size;
