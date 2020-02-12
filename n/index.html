@@ -9,19 +9,16 @@ layout: default
 
   <p class="subtitle">{{ site.description }}</p>
 
-  <p>---</p>
+  <hr>
 
   {% for post in site.posts %}
   <h2>
     <a href="{{ post.url }}">{{ post.title }}{% if post.subtitle %}: {{ post.subtitle }} {% endif %}</a>
   </h2>
-  <p class="meta index">
-    <em>{{ post.date | date_to_string: "ordinal", "US" }}</em>
-  </p>
   {{ post.excerpt }}
 
-  <p class="meta"><a href="{{ post.url }}">More >></a></p>
+  <p class="meta"><em>{{ post.date | date_to_string: "ordinal", "US" }}</em> | <a href="{{ post.url }}">More >></a></p>
 
-  <p>---</p>
+  <p class="mobile-only">---</p>
   {% endfor %}
 </div>

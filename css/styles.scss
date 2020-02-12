@@ -6,16 +6,16 @@ $body-font: 'Source Serif Pro', sans-serif;
 $small-screen: 700px;
 $duration: 0.5s;
 $timing: ease;
-$default-spacing: 2em;
-$smallest-font-size: 0.8em;
-$smaller-font-size: 1em;
-$small-font-size: 1.2em;
-$font-size: 1.4em;
-$medium-font-size: 1.6em;
-$large-font-size: 1.8em;
-$larger-font-size: 2.1em;
-$largest-font-size: 2.5em;
-$title-font-size: 4em;
+$default-spacing: 2rem;
+$smallest-font-size: 0.8rem;
+$smaller-font-size: 1rem;
+$small-font-size: 1.2rem;
+$font-size: 1.4rem;
+$medium-font-size: 1.6rem;
+$large-font-size: 1.8rem;
+$larger-font-size: 2.1rem;
+$largest-font-size: 2.5rem;
+$title-font-size: 4rem;
 
 @import '_base.scss';
 @import '_syntax.scss';
@@ -25,7 +25,7 @@ $title-font-size: 4em;
   h1 {
     font-size: $title-font-size;
     line-height: 1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
     @media (max-width: $small-screen) {
       font-size: $title-font-size * 0.8;
     }
@@ -38,11 +38,15 @@ $title-font-size: 4em;
   }
 
   p {
-    margin-top: 1em;
+    margin-top: 1rem;
   }
 
   .subtitle {
     font-size: $smaller-font-size;
+    margin-top: 0.5rem;
+    @media (max-width: $small-screen) {
+      font-size: $smaller-font-size * 0.9;
+    }
   }
 }
 

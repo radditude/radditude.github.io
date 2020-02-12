@@ -44,8 +44,8 @@ body {
   // global font settings
   font-family: $body-font;
   color: var(--body);
-  line-height: 1.9;
-  font-size: $small-font-size;
+  line-height: 1.7;
+  font-size: $smaller-font-size;
 
   @media (min-width: $small-screen) {
     align-items: center;
@@ -72,8 +72,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 0.5em;
-  margin-top: 1em;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
 }
 
 p,
@@ -83,7 +83,7 @@ ol,
 dl,
 figure,
 hr {
-  margin-bottom: 1.2em;
+  margin-bottom: 1.2rem;
 }
 
 /**
@@ -92,8 +92,7 @@ hr {
 main {
   display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
   margin: auto;
-  max-width: 38em;
-  // min-height: 100%;
+  max-width: 38rem;
   @media (min-width: $small-screen) {
     max-width: $small-screen;
   }
@@ -142,8 +141,8 @@ ul {
   li:before {
     content: '\2014';
     display: inline-block;
-    width: 1.5em;
-    margin-left: -1.5em;
+    width: 1.5rem;
+    margin-left: -1.5rem;
   }
 }
 
@@ -162,7 +161,7 @@ h5,
 h6 {
   font-family: $mono-font;
   font-weight: var(--title-weight);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.01rem;
 }
 
 h1 {
@@ -334,9 +333,10 @@ table {
   * Horizontal rules
   */
 hr {
-  border-color: var(--footer);
+  border: 1px solid var(--footer);
   transition: border-color $duration $timing;
   opacity: 0.5;
+  margin-bottom: $default-spacing;
 }
 
 /**
@@ -372,8 +372,10 @@ hr {
 .meta {
   font-size: $smaller-font-size;
   margin-top: 0.5rem;
+  filter: opacity(70%);
   &.index {
     margin-bottom: 0.5rem;
+    filter: opacity(90%);
   }
 }
 .nav {
@@ -381,6 +383,7 @@ hr {
   margin-bottom: 1.5rem;
   @media (max-width: ($small-screen)) {
     max-width: 75%;
+    font-size: $smaller-font-size * 0.95;
   }
 }
 
@@ -392,7 +395,7 @@ footer {
   @media (min-width: ($small-screen + 350px)) {
     position: absolute;
     bottom: 0;
-    right: 8em;
+    right: 8rem;
   }
   @media (max-width: ($small-screen + 350px)) {
     text-align: right;
@@ -400,7 +403,7 @@ footer {
   font-family: $mono-font;
   font-size: $smallest-font-size;
   color: var(--footer);
-  padding: 2em 0;
+  padding: 2rem 0;
 }
 
 /**
@@ -412,7 +415,7 @@ footer {
   position: absolute;
   right: 1rem;
   top: 1rem;
-  width: 3em;
+  width: 3rem;
   fill: var(--body);
   filter: grayscale(100%) opacity(50%);
   &:hover {
@@ -424,5 +427,15 @@ footer {
   }
   .light {
     display: var(--light-toggle-display);
+  }
+
+  @media (max-width: $small-screen) {
+    width: 3rem * 0.75;
+  }
+}
+
+.mobile-only {
+  @media (min-width: ($small-screen)) {
+    display: none;
   }
 }

@@ -4,7 +4,7 @@ title: 'Writing Reviews for Really Competent People'
 ---
 
 It's review season at my workplace, and once again I find myself confronted by
-the dilemma of how to write meaningful feedback for people who are great at
+the dilemma of how to write meaningful peer feedback for people who are great at
 their jobs.
 
 My first draft of one of these peer reviews -- let's call the person Jude --
