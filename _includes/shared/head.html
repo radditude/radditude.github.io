@@ -21,7 +21,7 @@
 
 {% if page.title %}
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="{{page.date}}" />
+<meta property="article:published_time" content="{{ page.date }}" />
 
 <meta property="article:author" content="{{ site.author.name }}" />
 <meta property="article:publisher" content="{{ site.author.name }}" />
@@ -33,23 +33,23 @@
 
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@radditude" />
-<meta name="twitter:title" content="{{page.title}}" />
+<meta name="twitter:title" content="{{ page.title }}" />
 
 {% if page.image %}
-<meta property="og:image" content="{{page.image}}" />
-<meta name="twitter:image" content="{{page.image}}" />
+<meta property="og:image" content="{{ page.image }}" />
+<meta name="twitter:image" content="{{ page.image }}" />
 {% else %}
-<meta property="og:image" content="/images/default.png" />
-<meta name="twitter:image" content="/images/default.png" />
+<meta property="og:image" content="{{ site.url }}/images/default.png" />
+<meta name="twitter:image" content="{{ site.url }}/images/default.png" />
 {% endif %}
 
 {% else %}
 <!-- OG data for homepage -->
-<meta property="og:image" content="/images/default.png" />
+<meta property="og:image" content="{{ site.url }}/images/default.png" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="{{site.title}}" />
-<meta name="twitter:image" content="/images/default.png" />
+<meta name="twitter:title" content="{{ site.title }}" />
+<meta name="twitter:image" content="{{ site.url }}/images/default.png" />
 {% endif %}
 
 <!-- favicons -->
