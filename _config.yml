@@ -50,6 +50,7 @@ kramdown:
   hard_wrap: false
 
 exclude: ['README.md', 'Gemfile', 'Gemfile.lock']
+include: ['.well-known']
 
 sass:
   sass_dir: css
