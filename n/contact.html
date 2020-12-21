@@ -4,7 +4,7 @@ title: 'Contact'
 ---
 {% include shared/nav.html current="contact" %}
 
-<div class="frontpage">
+<div class="container space-below">
 
   <h1>{{ site.author.name }}</h1>
 
@@ -14,11 +14,13 @@ title: 'Contact'
 
   <h2>get in touch</h2>
 
+  <p>I'm always happy to chat, especially with folks who are new to the tech industry and/or took an unconventional path to get there.</p>
+
   <p>The best way to reach me is by email at <a id="email-clipper">{{ site.author.display_email }}</a>. <span id="clipper-confirm">Copied to your clipboard!</span></p>
 
   {% assign twitter = site.author.social | where:"title","Twitter" %}
   {% assign github = site.author.social | where:"title","Github" %}
   {% assign dev = site.author.social | where:"title","dev.to" %}
 
-  <p>I've also been known to hang out on <a href="{{ twitter.first.url }}">Twitter</a> and <a href="{{ github.first.url }}">GitHub</a>.</p>
+  <p>You can also find me on <a href="{{ twitter.first.url }}">Twitter</a> and <a href="{{ github.first.url }}">GitHub</a>.</p>
 </div>

@@ -20,8 +20,8 @@ $title-font-size: 4rem;
 @import '_base.scss';
 @import '_syntax.scss';
 
-// styles specific to the front page
-.frontpage {
+// universal styles
+.container {
   h1 {
     font-size: $title-font-size;
     line-height: 1;
@@ -48,6 +48,17 @@ $title-font-size: 4rem;
       font-size: $smaller-font-size * 0.9;
     }
   }
+
+  &.space-below {
+    padding-bottom: 3vh;
+  }
+}
+
+.frontpage {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 span.expander {

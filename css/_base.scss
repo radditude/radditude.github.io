@@ -26,7 +26,7 @@ figure {
   */
 
 html {
-  height: 100vh;
+  height: 100%;
 }
 
 body {
@@ -41,15 +41,12 @@ body {
   background-color: var(--background);
   transition: background-color $duration $timing;
   position: relative;
+  height: 88vh;
   // global font settings
   font-family: $body-font;
   color: var(--body);
   line-height: 1.7;
   font-size: $smaller-font-size;
-
-  @media (min-width: $small-screen) {
-    align-items: center;
-  }
 }
 
 /**
@@ -93,6 +90,7 @@ main {
   display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
   margin: auto;
   max-width: 38rem;
+  height: 100%;
   @media (min-width: $small-screen) {
     max-width: $small-screen;
   }
@@ -385,25 +383,6 @@ hr {
     max-width: 75%;
     font-size: $smaller-font-size * 0.95;
   }
-}
-
-/**
-  * footer
-  */
-
-footer {
-  @media (min-width: ($small-screen + 350px)) {
-    position: absolute;
-    bottom: 0;
-    right: 8rem;
-  }
-  @media (max-width: ($small-screen + 350px)) {
-    text-align: right;
-  }
-  font-family: $mono-font;
-  font-size: $smallest-font-size;
-  color: var(--footer);
-  padding: 2rem 0;
 }
 
 /**

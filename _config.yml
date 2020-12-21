@@ -21,6 +21,8 @@ nav:
     path: "/"
   - title: whoami
     path: "/whoami"
+  - title: writing
+    path: "/writing"
   - title: contact
     path: "/contact"
 
