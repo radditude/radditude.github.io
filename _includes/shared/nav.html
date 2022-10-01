@@ -1,5 +1,5 @@
 <p class="nav">
   {% for link in site.nav %}
-  <a href="/n{{ link.path }}" class="nav" {% if include.current == link.title %}style="font-weight: bold;" {% endif %}>{{ link.title }}</a>
+  <a href="{{ link.path }}" class="nav" {% if include.current == link.title %}style="font-weight: bold;" {% endif %}>{{ link.title }}</a>
   {% endfor %}
 </p>

@@ -1,3 +1,18 @@
 ---
-layout: redirect
+layout: default
 ---
+
+<div class="frontpage">
+
+  <div class="container">
+
+    <h1>{{ site.author.name }}</h1>
+
+    <p class="subtitle">{{ site.description }}</p>
+
+    <hr>
+
+    {% include shared/nav.html current="home" %}
+
+  </div>
+</div>

@@ -1,13 +1,13 @@
 # Site settings
-title: 'CJ Horton'
-description: 'Software engineer and lifelong generalist. Automate the small stuff.'
+title: "CJ Horton"
+description: "Software engineer and lifelong generalist. Automate the small stuff."
 
 baseurl: ""
 
 author:
-  name: 'CJ Horton'
-  email: thecjhorton@gmail.com
-  display_email: 'thecjhorton [at] gmail dot com'
+  name: "CJ Horton"
+  email: cjh@orton.dev
+  display_email: "cjh [at] orton dot dev"
   social:
     - title: Github
       url: https://github.com/radditude
@@ -29,7 +29,7 @@ nav:
 collections:
   posts:
     output: true
-    permalink: /n/:title/
+    permalink: /:title/
   # projects:
   #   order:
   #     - coveralls-multi.md
@@ -51,8 +51,8 @@ kramdown:
   # do not replace newlines by <br>s
   hard_wrap: false
 
-exclude: ['README.md', 'Gemfile', 'Gemfile.lock']
-include: ['.well-known']
+exclude: ["README.md", "Gemfile", "Gemfile.lock"]
+include: [".well-known"]
 
 sass:
   sass_dir: css
