@@ -384,37 +384,3 @@ hr {
     font-size: $smaller-font-size * 0.95;
   }
 }
-
-/**
-  * dark mode toggle
-  */
-
-#toggle {
-  z-index: 10;
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  width: 3rem;
-  fill: var(--body);
-  filter: grayscale(100%) opacity(50%);
-  &:hover {
-    filter: grayscale(100%) opacity(80%);
-    transition: filter $duration $timing;
-  }
-  .dark {
-    display: var(--dark-toggle-display);
-  }
-  .light {
-    display: var(--light-toggle-display);
-  }
-
-  @media (max-width: $small-screen) {
-    width: 3rem * 0.75;
-  }
-}
-
-.mobile-only {
-  @media (min-width: ($small-screen)) {
-    display: none;
-  }
-}
