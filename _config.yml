@@ -1,6 +1,6 @@
 # Site settings
 title: "CJ Horton"
-description: "Software engineer and lifelong generalist. Automate the small stuff."
+description: "Software engineer and lifelong generalist."
 
 baseurl: ""
 
@@ -9,15 +9,13 @@ author:
   email: cjh@orton.dev
   display_email: "cjh [at] orton dot dev"
   social:
-    - title: Github
+    - title: github
       url: https://github.com/radditude
-    - title: Twitter
+    - title: twitter
       url: https://twitter.com/_radditude
-    - title: dev.to
-      url: https://dev.to/radditude
-    - title: Mastodon
+    - title: mastodon
       url: https://hachyderm.io/@radditude
-    - title: Cohost
+    - title: cohost
       url: https://cohost.org/radditude
 
 nav:

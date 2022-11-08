@@ -1,5 +1,9 @@
 <p class="nav">
   {% for link in site.nav %}
-  <a href="{{ link.path }}" class="nav" {% if include.current == link.title %}style="font-weight: bold;" {% endif %}>{{ link.title }}</a>
+  <a href="{{ link.path }}" class="nav" {% if include.current == link.title %}style="font-weight: bold;" {% endif %}>{{ link.title }}</a> ⚡︎
+  {% endfor %}
+  ||
+  {% for link in site.author.social %}
+  ⚡︎ <a href="{{ link.url }}" class="nav" target="_blank" rel="noopener noreferrer me">{{ link.title }}</a>
   {% endfor %}
 </p>
