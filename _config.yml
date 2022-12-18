@@ -10,9 +10,7 @@ author:
   display_email: "cjh [at] orton dot dev"
   social:
     - title: github
-      url: https://github.com/radditude
-    - title: twitter
-      url: https://twitter.com/_radditude
+      url: https://github.com/
     - title: mastodon
       url: https://hachyderm.io/@radditude
     - title: cohost
