@@ -19,8 +19,8 @@ title: 'Contact'
   <p>The best way to reach me is by email at <a id="email-clipper">{{ site.author.display_email }}</a>. <span id="clipper-confirm">Copied to your clipboard!</span></p>
 
   {% assign github = site.author.social | where:"title","github" %}
-  {% assign mastodon = site.author.social | where:"title","mastodon" %}
-  {% assign cohost = site.author.social | where:"title","cohost" %}
+  {% assign bluesky = site.author.social | where:"title","bluesky" %}
+  {% assign linkedin = site.author.social | where:"title","linkedin" %}
 
-  <p>You can also find me as @radditude in various places around the web: <a href="{{ github.first.url }}">GitHub</a>, <a rel="me" href="{{ mastodon.first.url }}">Mastodon</a>, and <a href="{{ cohost.first.url }}">Cohost</a>.</p>
+  <p>I don't really do much social media-ing these days, but you can find me as @radditude in various places around the web: <a href="{{ github.first.url }}">GitHub</a>, <a href="{{ bluesky.first.url }}">BlueSky</a>, and <a href="{{ linkedin.first.url }}">Linked</a>.</p>
 </div>
