@@ -11,10 +11,10 @@ author:
   social:
     - title: github
       url: https://github.com/
-    - title: mastodon
-      url: https://hachyderm.io/@radditude
-    - title: cohost
-      url: https://cohost.org/radditude
+    - title: bluesky
+      url: https://bsky.app/profile/radditude.bsky.social
+    - title: linkedin
+      url: https://www.linkedin.com/in/thecjhorton/
 
 nav:
   - title: home
